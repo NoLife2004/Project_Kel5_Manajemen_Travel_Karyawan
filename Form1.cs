@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Project_Kel5_Manajemen_Travel
 {
-    public partial class Form1 : Form
+    public partial class FromLogin : Form
     {
-        public Form1()
+        public FromLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
