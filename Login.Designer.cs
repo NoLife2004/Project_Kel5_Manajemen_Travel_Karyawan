@@ -39,7 +39,7 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(605, 315);
+            this.btnConfirm.Location = new System.Drawing.Point(650, 447);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(492, 315);
+            this.btnExit.Location = new System.Drawing.Point(537, 447);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 1;
@@ -63,7 +63,7 @@
             this.lblUserName.BackColor = System.Drawing.Color.Transparent;
             this.lblUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.ForeColor = System.Drawing.Color.White;
-            this.lblUserName.Location = new System.Drawing.Point(456, 118);
+            this.lblUserName.Location = new System.Drawing.Point(501, 250);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(85, 18);
             this.lblUserName.TabIndex = 2;
@@ -75,7 +75,7 @@
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.Color.White;
-            this.lblPassword.Location = new System.Drawing.Point(456, 176);
+            this.lblPassword.Location = new System.Drawing.Point(501, 308);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(83, 18);
             this.lblPassword.TabIndex = 3;
@@ -83,14 +83,14 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(542, 118);
+            this.txtUserName.Location = new System.Drawing.Point(587, 250);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(193, 20);
             this.txtUserName.TabIndex = 4;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(542, 176);
+            this.txtPass.Location = new System.Drawing.Point(587, 308);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(193, 20);
             this.txtPass.TabIndex = 5;

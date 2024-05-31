@@ -16,5 +16,10 @@ namespace Project_Kel5_Manajemen_Travel
         {
             InitializeComponent();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
