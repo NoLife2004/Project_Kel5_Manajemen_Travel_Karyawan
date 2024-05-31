@@ -21,5 +21,12 @@ namespace Project_Kel5_Manajemen_Travel
         {
             this.Close();
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            this.Hide(); // Menyembunyikan form saat ini
+            AfterLogin afterLoginForm = new AfterLogin(); // Membuat instans dari form AfterLogin
+            afterLoginForm.Show(); // Menampilkan form AfterLogin
+        }
     }
 }
