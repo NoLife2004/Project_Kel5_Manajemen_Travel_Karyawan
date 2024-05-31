@@ -52,6 +52,12 @@
     <Compile Include="AfterLogin.Designer.cs">
       <DependentUpon>AfterLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forgot_Pass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forgot_Pass.Designer.cs">
+      <DependentUpon>Forgot_Pass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AfterLogin.resx">
       <DependentUpon>AfterLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forgot_Pass.resx">
+      <DependentUpon>Forgot_Pass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Project_Kel5_Manajemen_Travel
 {
-    public partial class AfterLogin : Form
+    public partial class Forgot_Pass : Form
     {
-        public AfterLogin()
+        public Forgot_Pass()
         {
             InitializeComponent();
         }
@@ -20,6 +20,8 @@ namespace Project_Kel5_Manajemen_Travel
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Hide();
+            FromLogin login = new FromLogin();
+            login.ShowDialog();
         }
     }
 }

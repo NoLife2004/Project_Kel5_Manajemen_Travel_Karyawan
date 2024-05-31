@@ -17,20 +17,7 @@ namespace Project_Kel5_Manajemen_Travel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            // Create an instance of the FromLogin form
-            FromLogin form = new FromLogin();
-
-            // Set the form to be full screen
-            Screen screen = Screen.FromHandle(form.Handle);
-            Rectangle bounds = screen.Bounds;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(0, 0);
-            form.Size = new Size(bounds.Width, bounds.Height);
-
-            // Run the application with the full screen form
-            Application.Run(form);
+            Application.Run(new FromLogin());
         }
     }
 }
