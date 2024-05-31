@@ -23,10 +23,11 @@ namespace Project_Kel5_Manajemen_Travel
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
-        {
-            this.Hide(); 
+        { 
+            this.Hide();
             AfterLogin afterLoginForm = new AfterLogin(); 
-            afterLoginForm.Show(); 
+            afterLoginForm.ShowDialog(); 
+            this.Close();
         }
     }
 }
