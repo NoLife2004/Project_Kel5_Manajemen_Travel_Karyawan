@@ -36,6 +36,7 @@ namespace Project_Kel5_Manajemen_Travel
             this.Hide();
             Forgot_Pass forgot_Pass = new Forgot_Pass();
             forgot_Pass.ShowDialog();
+            this.Close();
         }
     }
 }

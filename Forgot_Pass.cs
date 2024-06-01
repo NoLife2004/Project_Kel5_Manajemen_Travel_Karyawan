@@ -23,5 +23,12 @@ namespace Project_Kel5_Manajemen_Travel
             FromLogin login = new FromLogin();
             login.ShowDialog();
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FromLogin login = new FromLogin();
+            login.ShowDialog();
+        }
     }
 }

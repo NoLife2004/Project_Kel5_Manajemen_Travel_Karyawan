@@ -36,8 +36,8 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.lblLoginKaryawan = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.LoginPanel = new System.Windows.Forms.Panel();
             this.lnklblForgotPass = new System.Windows.Forms.LinkLabel();
             this.topPanel.SuspendLayout();
@@ -46,7 +46,7 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(145)))));
+            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(186)))), ((int)(((byte)(202)))));
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Location = new System.Drawing.Point(127, 226);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -116,7 +116,7 @@
             // 
             // topPanel
             // 
-            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(150)))), ((int)(((byte)(179)))));
             this.topPanel.Controls.Add(this.label1);
             this.topPanel.Controls.Add(this.btnClose);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -124,6 +124,19 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1280, 32);
             this.topPanel.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(4, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Login";
             // 
             // btnClose
             // 
@@ -138,19 +151,6 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(4, 7);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Login";
             // 
             // LoginPanel
             // 
@@ -170,7 +170,7 @@
             // 
             this.lnklblForgotPass.AutoSize = true;
             this.lnklblForgotPass.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(136)))), ((int)(((byte)(209)))));
-            this.lnklblForgotPass.Location = new System.Drawing.Point(119, 198);
+            this.lnklblForgotPass.Location = new System.Drawing.Point(122, 198);
             this.lnklblForgotPass.Name = "lnklblForgotPass";
             this.lnklblForgotPass.Size = new System.Drawing.Size(99, 15);
             this.lnklblForgotPass.TabIndex = 7;
@@ -182,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.LoginPanel);
             this.Controls.Add(this.topPanel);
