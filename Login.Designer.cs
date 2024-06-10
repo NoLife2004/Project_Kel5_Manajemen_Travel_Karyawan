@@ -107,16 +107,16 @@
             this.lblLoginKaryawan.BackColor = System.Drawing.Color.Transparent;
             this.lblLoginKaryawan.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoginKaryawan.ForeColor = System.Drawing.Color.Black;
-            this.lblLoginKaryawan.Location = new System.Drawing.Point(118, 25);
+            this.lblLoginKaryawan.Location = new System.Drawing.Point(147, 25);
             this.lblLoginKaryawan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoginKaryawan.Name = "lblLoginKaryawan";
-            this.lblLoginKaryawan.Size = new System.Drawing.Size(110, 20);
+            this.lblLoginKaryawan.Size = new System.Drawing.Size(48, 20);
             this.lblLoginKaryawan.TabIndex = 6;
-            this.lblLoginKaryawan.Text = "Login Pegawai";
+            this.lblLoginKaryawan.Text = "Login";
             // 
             // topPanel
             // 
-            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(150)))), ((int)(((byte)(179)))));
+            this.topPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(21)))), ((int)(((byte)(16)))));
             this.topPanel.Controls.Add(this.label1);
             this.topPanel.Controls.Add(this.btnClose);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -154,6 +154,7 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.BackColor = System.Drawing.Color.White;
             this.LoginPanel.Controls.Add(this.lnklblForgotPass);
             this.LoginPanel.Controls.Add(this.lblLoginKaryawan);
             this.LoginPanel.Controls.Add(this.txtUserName);
@@ -161,7 +162,7 @@
             this.LoginPanel.Controls.Add(this.txtPass);
             this.LoginPanel.Controls.Add(this.lblUserName);
             this.LoginPanel.Controls.Add(this.lblPassword);
-            this.LoginPanel.Location = new System.Drawing.Point(68, 198);
+            this.LoginPanel.Location = new System.Drawing.Point(469, 198);
             this.LoginPanel.Name = "LoginPanel";
             this.LoginPanel.Size = new System.Drawing.Size(342, 314);
             this.LoginPanel.TabIndex = 8;
@@ -183,6 +184,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.LoginPanel);
             this.Controls.Add(this.topPanel);
