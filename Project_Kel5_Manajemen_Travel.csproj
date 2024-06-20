@@ -51,10 +51,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NexTrip_Adventure.xsd</DependentUpon>
     </Compile>
-    <Compile Include="UserEmployeeForm.cs">
+    <Compile Include="UserControl\UserEmployeeForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserEmployeeForm.Designer.cs">
+    <Compile Include="UserControl\UserEmployeeForm.Designer.cs">
       <DependentUpon>UserEmployeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -77,31 +77,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserPromosForm.cs">
+    <Compile Include="UserControl\UserPromosForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserPromosForm.Designer.cs">
+    <Compile Include="UserControl\UserPromosForm.Designer.cs">
       <DependentUpon>UserPromosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserTripBundleForm.cs">
+    <Compile Include="UserControl\UserTripBundleForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserTripBundleForm.Designer.cs">
+    <Compile Include="UserControl\UserTripBundleForm.Designer.cs">
       <DependentUpon>UserTripBundleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserRoleForm.cs">
+    <Compile Include="UserControl\UserRoleForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserRoleForm.Designer.cs">
+    <Compile Include="UserControl\UserRoleForm.Designer.cs">
       <DependentUpon>UserRoleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserUnitForm.cs">
+    <Compile Include="UserControl\UserUnitForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserUnitForm.Designer.cs">
+    <Compile Include="UserControl\UserUnitForm.Designer.cs">
       <DependentUpon>UserUnitForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserEmployeeForm.resx">
+    <EmbeddedResource Include="UserControl\UserEmployeeForm.resx">
       <DependentUpon>UserEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -123,16 +123,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserPromosForm.resx">
+    <EmbeddedResource Include="UserControl\UserPromosForm.resx">
       <DependentUpon>UserPromosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserRoleForm.resx">
+    <EmbeddedResource Include="UserControl\UserRoleForm.resx">
       <DependentUpon>UserRoleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserTripBundleForm.resx">
+    <EmbeddedResource Include="UserControl\UserTripBundleForm.resx">
       <DependentUpon>UserTripBundleForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserUnitForm.resx">
+    <EmbeddedResource Include="UserControl\UserUnitForm.resx">
       <DependentUpon>UserUnitForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="NexTrip_Adventure.xsc">
