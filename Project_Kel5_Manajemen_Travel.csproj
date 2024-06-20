@@ -46,11 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AfterLogin.cs">
+    <Compile Include="NexTrip_Adventure.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NexTrip_Adventure.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UserEmployeeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEmployeeForm.Designer.cs">
+      <DependentUpon>UserEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AfterLogin.Designer.cs">
-      <DependentUpon>AfterLogin.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forgot_Pass.cs">
       <SubType>Form</SubType>
@@ -58,22 +69,49 @@
     <Compile Include="Forgot_Pass.Designer.cs">
       <DependentUpon>Forgot_Pass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AfterLogin.resx">
-      <DependentUpon>AfterLogin.cs</DependentUpon>
+    <Compile Include="UserPromosForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserPromosForm.Designer.cs">
+      <DependentUpon>UserPromosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserTripBundleForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserTripBundleForm.Designer.cs">
+      <DependentUpon>UserTripBundleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserRoleForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserRoleForm.Designer.cs">
+      <DependentUpon>UserRoleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserUnitForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserUnitForm.Designer.cs">
+      <DependentUpon>UserUnitForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserEmployeeForm.resx">
+      <DependentUpon>UserEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forgot_Pass.resx">
       <DependentUpon>Forgot_Pass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,7 +121,31 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserPromosForm.resx">
+      <DependentUpon>UserPromosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserRoleForm.resx">
+      <DependentUpon>UserRoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserTripBundleForm.resx">
+      <DependentUpon>UserTripBundleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserUnitForm.resx">
+      <DependentUpon>UserUnitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="NexTrip_Adventure.xsc">
+      <DependentUpon>NexTrip_Adventure.xsd</DependentUpon>
+    </None>
+    <None Include="NexTrip_Adventure.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NexTrip_Adventure.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="NexTrip_Adventure.xss">
+      <DependentUpon>NexTrip_Adventure.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,6 +158,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\th__5_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Logout.png" />
+    <Content Include="Assets\Refresh.png" />
+    <Content Include="Assets\Search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
