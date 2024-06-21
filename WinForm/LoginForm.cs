@@ -45,9 +45,9 @@ namespace Project_Kel5_Manajemen_Travel
                         {
                             MessageBox.Show("Login Successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                            this.Hide();
                             MainForm afterLoginForm = new MainForm();
                             afterLoginForm.ShowDialog();
-                            this.Hide();
                         }
                         else
                         {
