@@ -43,7 +43,7 @@ namespace Project_Kel5_Manajemen_Travel
                     name.Text = row.Cells[1].Value.ToString();
                 }
             }
-           
+
         }
 
         public DataSet Role()

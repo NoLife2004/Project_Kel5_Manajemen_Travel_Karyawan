@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Cancel = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
@@ -49,9 +50,20 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.employee_gridData = new System.Windows.Forms.DataGridView();
+            this.idunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nokursiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nopolisiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jenisunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.merkunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitTravelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nexTrip_Adventure = new Project_Kel5_Manajemen_Travel.NexTrip_Adventure();
+            this.unitTravelTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureTableAdapters.UnitTravelTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitTravelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_Adventure)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -133,10 +145,9 @@
             // name
             // 
             this.name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.name.Location = new System.Drawing.Point(229, 43);
-            this.name.Multiline = true;
+            this.name.Location = new System.Drawing.Point(229, 47);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(218, 47);
+            this.name.Size = new System.Drawing.Size(218, 20);
             this.name.TabIndex = 6;
             // 
             // email
@@ -238,9 +249,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(101, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.Size = new System.Drawing.Size(106, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Name :";
+            this.label1.Text = "Number of Unit :";
             // 
             // panel2
             // 
@@ -269,17 +280,26 @@
             this.employee_gridData.AllowUserToDeleteRows = false;
             this.employee_gridData.AllowUserToResizeColumns = false;
             this.employee_gridData.AllowUserToResizeRows = false;
+            this.employee_gridData.AutoGenerateColumns = false;
             this.employee_gridData.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.employee_gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.employee_gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.employee_gridData.ColumnHeadersHeight = 30;
             this.employee_gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.employee_gridData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idunitDataGridViewTextBoxColumn,
+            this.nokursiDataGridViewTextBoxColumn,
+            this.nopolisiDataGridViewTextBoxColumn,
+            this.statusunitDataGridViewTextBoxColumn,
+            this.jenisunitDataGridViewTextBoxColumn,
+            this.merkunitDataGridViewTextBoxColumn});
+            this.employee_gridData.DataSource = this.unitTravelBindingSource;
             this.employee_gridData.EnableHeadersVisualStyles = false;
             this.employee_gridData.Location = new System.Drawing.Point(60, 77);
             this.employee_gridData.Name = "employee_gridData";
@@ -289,6 +309,63 @@
             this.employee_gridData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.employee_gridData.Size = new System.Drawing.Size(908, 177);
             this.employee_gridData.TabIndex = 0;
+            this.employee_gridData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employee_gridData_CellContentClick);
+            // 
+            // idunitDataGridViewTextBoxColumn
+            // 
+            this.idunitDataGridViewTextBoxColumn.DataPropertyName = "id_unit";
+            this.idunitDataGridViewTextBoxColumn.HeaderText = "ID Unit";
+            this.idunitDataGridViewTextBoxColumn.Name = "idunitDataGridViewTextBoxColumn";
+            this.idunitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nokursiDataGridViewTextBoxColumn
+            // 
+            this.nokursiDataGridViewTextBoxColumn.DataPropertyName = "no_kursi";
+            this.nokursiDataGridViewTextBoxColumn.HeaderText = "Number of Seat";
+            this.nokursiDataGridViewTextBoxColumn.Name = "nokursiDataGridViewTextBoxColumn";
+            this.nokursiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nopolisiDataGridViewTextBoxColumn
+            // 
+            this.nopolisiDataGridViewTextBoxColumn.DataPropertyName = "no_polisi";
+            this.nopolisiDataGridViewTextBoxColumn.HeaderText = "Police Number";
+            this.nopolisiDataGridViewTextBoxColumn.Name = "nopolisiDataGridViewTextBoxColumn";
+            this.nopolisiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusunitDataGridViewTextBoxColumn
+            // 
+            this.statusunitDataGridViewTextBoxColumn.DataPropertyName = "status_unit";
+            this.statusunitDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusunitDataGridViewTextBoxColumn.Name = "statusunitDataGridViewTextBoxColumn";
+            this.statusunitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // jenisunitDataGridViewTextBoxColumn
+            // 
+            this.jenisunitDataGridViewTextBoxColumn.DataPropertyName = "jenis_unit";
+            this.jenisunitDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.jenisunitDataGridViewTextBoxColumn.Name = "jenisunitDataGridViewTextBoxColumn";
+            this.jenisunitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // merkunitDataGridViewTextBoxColumn
+            // 
+            this.merkunitDataGridViewTextBoxColumn.DataPropertyName = "merk_unit";
+            this.merkunitDataGridViewTextBoxColumn.HeaderText = "Merk";
+            this.merkunitDataGridViewTextBoxColumn.Name = "merkunitDataGridViewTextBoxColumn";
+            this.merkunitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitTravelBindingSource
+            // 
+            this.unitTravelBindingSource.DataMember = "UnitTravel";
+            this.unitTravelBindingSource.DataSource = this.nexTrip_Adventure;
+            // 
+            // nexTrip_Adventure
+            // 
+            this.nexTrip_Adventure.DataSetName = "NexTrip_Adventure";
+            this.nexTrip_Adventure.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // unitTravelTableAdapter
+            // 
+            this.unitTravelTableAdapter.ClearBeforeFill = true;
             // 
             // UserUnitForm
             // 
@@ -304,6 +381,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.unitTravelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_Adventure)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,5 +409,14 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView employee_gridData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nokursiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nopolisiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jenisunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn merkunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource unitTravelBindingSource;
+        private NexTrip_Adventure nexTrip_Adventure;
+        private NexTrip_AdventureTableAdapters.UnitTravelTableAdapter unitTravelTableAdapter;
     }
 }
