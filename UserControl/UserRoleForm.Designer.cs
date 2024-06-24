@@ -44,7 +44,7 @@
             this.idroleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namaroleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nexTrip_Adventure = new Project_Kel5_Manajemen_Travel.NexTrip_Adventure();
+            this.nexTrip_Adventure = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
@@ -55,7 +55,7 @@
             this.idRole = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.roleTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureTableAdapters.RoleTableAdapter();
+            this.roleTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.RoleTableAdapter();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.createPanel = new System.Windows.Forms.Panel();
             this.insertId = new System.Windows.Forms.Label();
@@ -530,8 +530,8 @@
         private System.Windows.Forms.Panel editPanel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.BindingSource roleBindingSource;
-        private NexTrip_Adventure nexTrip_Adventure;
-        private NexTrip_AdventureTableAdapters.RoleTableAdapter roleTableAdapter;
+        private NexTrip_AdventureDataSet nexTrip_Adventure;
+        private NexTrip_AdventureDataSetTableAdapters.RoleTableAdapter roleTableAdapter;
         private System.Windows.Forms.DataGridView employee_gridData;
         private System.Windows.Forms.DataGridViewTextBoxColumn idroleDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn namaroleDataGridViewTextBoxColumn1;

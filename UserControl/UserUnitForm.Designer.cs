@@ -57,8 +57,8 @@
             this.jenisunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.merkunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitTravelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nexTrip_Adventure = new Project_Kel5_Manajemen_Travel.NexTrip_Adventure();
-            this.unitTravelTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureTableAdapters.UnitTravelTableAdapter();
+            this.nexTrip_Adventure = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
+            this.unitTravelTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.UnitTravelTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).BeginInit();
@@ -416,7 +416,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jenisunitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn merkunitDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource unitTravelBindingSource;
-        private NexTrip_Adventure nexTrip_Adventure;
-        private NexTrip_AdventureTableAdapters.UnitTravelTableAdapter unitTravelTableAdapter;
+        private NexTrip_AdventureDataSet nexTrip_Adventure;
+        private NexTrip_AdventureDataSetTableAdapters.UnitTravelTableAdapter unitTravelTableAdapter;
     }
 }

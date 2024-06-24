@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NexTrip_Adventure.Designer.cs">
+    <Compile Include="NexTrip_AdventureDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>NexTrip_Adventure.xsd</DependentUpon>
+      <DependentUpon>NexTrip_AdventureDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="UserControl\UserEmployeeForm.cs">
       <SubType>UserControl</SubType>
@@ -144,16 +144,16 @@
     <EmbeddedResource Include="UserControl\UserUnitForm.resx">
       <DependentUpon>UserUnitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="NexTrip_Adventure.xsc">
-      <DependentUpon>NexTrip_Adventure.xsd</DependentUpon>
+    <None Include="NexTrip_AdventureDataSet.xsc">
+      <DependentUpon>NexTrip_AdventureDataSet.xsd</DependentUpon>
     </None>
-    <None Include="NexTrip_Adventure.xsd">
-      <SubType>Designer</SubType>
+    <None Include="NexTrip_AdventureDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NexTrip_Adventure.Designer.cs</LastGenOutput>
+      <LastGenOutput>NexTrip_AdventureDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="NexTrip_Adventure.xss">
-      <DependentUpon>NexTrip_Adventure.xsd</DependentUpon>
+    <None Include="NexTrip_AdventureDataSet.xss">
+      <DependentUpon>NexTrip_AdventureDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

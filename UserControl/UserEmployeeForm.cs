@@ -157,6 +157,8 @@ namespace Project_Kel5_Manajemen_Travel
                 MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             panelEditCreate.Visible = true;
+            username.Enabled = false; 
+            password.Enabled = false;
             creatBtn.Visible = false;
             updateBtn.Visible = true;
             lbEdit.Visible = true;
@@ -418,7 +420,5 @@ namespace Project_Kel5_Manajemen_Travel
                 e.Handled = true;
             }
         }
-
-        
     }
 }

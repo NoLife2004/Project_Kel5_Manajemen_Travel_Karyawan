@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEditCreate = new System.Windows.Forms.Panel();
             this.lbEdit = new System.Windows.Forms.Label();
             this.lbCreate = new System.Windows.Forms.Label();
@@ -46,8 +46,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxRole = new System.Windows.Forms.ComboBox();
-            this.roleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nexTrip_Adventure = new Project_Kel5_Manajemen_Travel.NexTrip_Adventure();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -60,6 +58,12 @@
             this.create = new System.Windows.Forms.Button();
             this.change = new System.Windows.Forms.Button();
             this.employee_gridData = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.search = new System.Windows.Forms.Button();
+            this.nexTrip_AdventureDataSet = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.staffTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.StaffTableAdapter();
             this.idstaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idroleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namastaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,18 +71,10 @@
             this.notelpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.search = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.staffTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureTableAdapters.StaffTableAdapter();
-            this.roleTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureTableAdapters.RoleTableAdapter();
             this.panelEditCreate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_Adventure)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_AdventureDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -258,24 +254,13 @@
             // 
             // cbxRole
             // 
-            this.cbxRole.DataSource = this.roleBindingSource;
-            this.cbxRole.DisplayMember = "nama_role";
+            this.cbxRole.DisplayMember = "id_role";
             this.cbxRole.FormattingEnabled = true;
             this.cbxRole.Location = new System.Drawing.Point(593, 114);
             this.cbxRole.Name = "cbxRole";
             this.cbxRole.Size = new System.Drawing.Size(218, 21);
             this.cbxRole.TabIndex = 9;
             this.cbxRole.ValueMember = "id_role";
-            // 
-            // roleBindingSource
-            // 
-            this.roleBindingSource.DataMember = "Role";
-            this.roleBindingSource.DataSource = this.nexTrip_Adventure;
-            // 
-            // nexTrip_Adventure
-            // 
-            this.nexTrip_Adventure.DataSetName = "NexTrip_Adventure";
-            this.nexTrip_Adventure.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -324,12 +309,11 @@
             this.lbID.AutoSize = true;
             this.lbID.BackColor = System.Drawing.Color.Transparent;
             this.lbID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(542, 586);
+            this.lbID.Location = new System.Drawing.Point(971, 313);
             this.lbID.Name = "lbID";
             this.lbID.Size = new System.Drawing.Size(12, 17);
             this.lbID.TabIndex = 30;
             this.lbID.Text = " ";
-            this.lbID.Visible = false;
             // 
             // delete
             // 
@@ -424,14 +408,14 @@
             this.employee_gridData.AllowUserToResizeRows = false;
             this.employee_gridData.AutoGenerateColumns = false;
             this.employee_gridData.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.employee_gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.employee_gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.employee_gridData.ColumnHeadersHeight = 30;
             this.employee_gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.employee_gridData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -453,63 +437,6 @@
             this.employee_gridData.Size = new System.Drawing.Size(908, 402);
             this.employee_gridData.TabIndex = 0;
             this.employee_gridData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employee_gridData_CellContentClick);
-            // 
-            // idstaffDataGridViewTextBoxColumn
-            // 
-            this.idstaffDataGridViewTextBoxColumn.DataPropertyName = "id_staff";
-            this.idstaffDataGridViewTextBoxColumn.HeaderText = "ID Employee";
-            this.idstaffDataGridViewTextBoxColumn.Name = "idstaffDataGridViewTextBoxColumn";
-            this.idstaffDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idroleDataGridViewTextBoxColumn
-            // 
-            this.idroleDataGridViewTextBoxColumn.DataPropertyName = "id_role";
-            this.idroleDataGridViewTextBoxColumn.HeaderText = "ID Role";
-            this.idroleDataGridViewTextBoxColumn.Name = "idroleDataGridViewTextBoxColumn";
-            this.idroleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // namastaffDataGridViewTextBoxColumn
-            // 
-            this.namastaffDataGridViewTextBoxColumn.DataPropertyName = "nama_staff";
-            this.namastaffDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.namastaffDataGridViewTextBoxColumn.Name = "namastaffDataGridViewTextBoxColumn";
-            this.namastaffDataGridViewTextBoxColumn.ReadOnly = true;
-            this.namastaffDataGridViewTextBoxColumn.Width = 195;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "E-Mail";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // notelpDataGridViewTextBoxColumn
-            // 
-            this.notelpDataGridViewTextBoxColumn.DataPropertyName = "no_telp";
-            this.notelpDataGridViewTextBoxColumn.HeaderText = "Phone Number";
-            this.notelpDataGridViewTextBoxColumn.Name = "notelpDataGridViewTextBoxColumn";
-            this.notelpDataGridViewTextBoxColumn.ReadOnly = true;
-            this.notelpDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.nexTrip_Adventure;
             // 
             // label7
             // 
@@ -547,18 +474,73 @@
             this.search.UseVisualStyleBackColor = false;
             this.search.Click += new System.EventHandler(this.search_Click);
             // 
-            // contextMenuStrip1
+            // nexTrip_AdventureDataSet
             // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.nexTrip_AdventureDataSet.DataSetName = "NexTrip_AdventureDataSet";
+            this.nexTrip_AdventureDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "Staff";
+            this.staffBindingSource.DataSource = this.nexTrip_AdventureDataSet;
             // 
             // staffTableAdapter
             // 
             this.staffTableAdapter.ClearBeforeFill = true;
             // 
-            // roleTableAdapter
+            // idstaffDataGridViewTextBoxColumn
             // 
-            this.roleTableAdapter.ClearBeforeFill = true;
+            this.idstaffDataGridViewTextBoxColumn.DataPropertyName = "id_staff";
+            this.idstaffDataGridViewTextBoxColumn.HeaderText = "ID Employee";
+            this.idstaffDataGridViewTextBoxColumn.Name = "idstaffDataGridViewTextBoxColumn";
+            this.idstaffDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idroleDataGridViewTextBoxColumn
+            // 
+            this.idroleDataGridViewTextBoxColumn.DataPropertyName = "id_role";
+            this.idroleDataGridViewTextBoxColumn.HeaderText = "ID Role";
+            this.idroleDataGridViewTextBoxColumn.Name = "idroleDataGridViewTextBoxColumn";
+            this.idroleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // namastaffDataGridViewTextBoxColumn
+            // 
+            this.namastaffDataGridViewTextBoxColumn.DataPropertyName = "nama_staff";
+            this.namastaffDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.namastaffDataGridViewTextBoxColumn.Name = "namastaffDataGridViewTextBoxColumn";
+            this.namastaffDataGridViewTextBoxColumn.ReadOnly = true;
+            this.namastaffDataGridViewTextBoxColumn.Width = 190;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "E-Mail";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Width = 180;
+            // 
+            // notelpDataGridViewTextBoxColumn
+            // 
+            this.notelpDataGridViewTextBoxColumn.DataPropertyName = "no_telp";
+            this.notelpDataGridViewTextBoxColumn.HeaderText = "No Telp";
+            this.notelpDataGridViewTextBoxColumn.Name = "notelpDataGridViewTextBoxColumn";
+            this.notelpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.notelpDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.usernameDataGridViewTextBoxColumn.Width = 102;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            this.passwordDataGridViewTextBoxColumn.Width = 102;
             // 
             // UserEmployeeForm
             // 
@@ -571,11 +553,10 @@
             this.Load += new System.EventHandler(this.UserEmployeeForm_Load);
             this.panelEditCreate.ResumeLayout(false);
             this.panelEditCreate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_Adventure)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_AdventureDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -596,25 +577,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxRole;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button creatBtn;
-        private System.Windows.Forms.BindingSource staffBindingSource;
-        private NexTrip_Adventure nexTrip_Adventure;
-        private NexTrip_AdventureTableAdapters.StaffTableAdapter staffTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idstaffDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idroleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namastaffDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notelpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource roleBindingSource;
-        private NexTrip_AdventureTableAdapters.RoleTableAdapter roleTableAdapter;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox fillTxt;
         private System.Windows.Forms.Label label9;
@@ -627,5 +595,15 @@
         private System.Windows.Forms.Label lbCreate;
         private System.Windows.Forms.Label lbEdit;
         private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.BindingSource staffBindingSource;
+        private NexTrip_AdventureDataSet nexTrip_AdventureDataSet;
+        private NexTrip_AdventureDataSetTableAdapters.StaffTableAdapter staffTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idstaffDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idroleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namastaffDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notelpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
     }
 }
