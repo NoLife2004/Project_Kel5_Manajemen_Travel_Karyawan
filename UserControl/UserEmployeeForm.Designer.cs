@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEditCreate = new System.Windows.Forms.Panel();
             this.lbEdit = new System.Windows.Forms.Label();
             this.lbCreate = new System.Windows.Forms.Label();
@@ -58,12 +58,6 @@
             this.create = new System.Windows.Forms.Button();
             this.change = new System.Windows.Forms.Button();
             this.employee_gridData = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.search = new System.Windows.Forms.Button();
-            this.nexTrip_AdventureDataSet = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.staffTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.StaffTableAdapter();
             this.idstaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idroleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namastaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,16 +65,23 @@
             this.notelpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nexTrip_AdventureDataSet = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.search = new System.Windows.Forms.Button();
+            this.staffTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.StaffTableAdapter();
             this.panelEditCreate.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_AdventureDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_AdventureDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEditCreate
             // 
             this.panelEditCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.panelEditCreate.Controls.Add(this.lbID);
             this.panelEditCreate.Controls.Add(this.lbEdit);
             this.panelEditCreate.Controls.Add(this.lbCreate);
             this.panelEditCreate.Controls.Add(this.cancelBtn);
@@ -286,7 +287,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.CausesValidation = false;
-            this.panel2.Controls.Add(this.lbID);
             this.panel2.Controls.Add(this.panelEditCreate);
             this.panel2.Controls.Add(this.delete);
             this.panel2.Controls.Add(this.label10);
@@ -309,11 +309,12 @@
             this.lbID.AutoSize = true;
             this.lbID.BackColor = System.Drawing.Color.Transparent;
             this.lbID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(971, 313);
+            this.lbID.Location = new System.Drawing.Point(585, 260);
             this.lbID.Name = "lbID";
             this.lbID.Size = new System.Drawing.Size(12, 17);
             this.lbID.TabIndex = 30;
             this.lbID.Text = " ";
+            this.lbID.Visible = false;
             // 
             // delete
             // 
@@ -408,14 +409,14 @@
             this.employee_gridData.AllowUserToResizeRows = false;
             this.employee_gridData.AutoGenerateColumns = false;
             this.employee_gridData.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.employee_gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.employee_gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.employee_gridData.ColumnHeadersHeight = 30;
             this.employee_gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.employee_gridData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -437,56 +438,6 @@
             this.employee_gridData.Size = new System.Drawing.Size(908, 402);
             this.employee_gridData.TabIndex = 0;
             this.employee_gridData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employee_gridData_CellContentClick);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(51, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 25);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Employee Data";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(552, 493);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(178, 17);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Please fill in below to search";
-            // 
-            // search
-            // 
-            this.search.BackColor = System.Drawing.Color.Transparent;
-            this.search.BackgroundImage = global::Project_Kel5_Manajemen_Travel.Properties.Resources.Search;
-            this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.search.FlatAppearance.BorderSize = 0;
-            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.search.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.search.ForeColor = System.Drawing.SystemColors.Control;
-            this.search.Location = new System.Drawing.Point(932, 521);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(27, 29);
-            this.search.TabIndex = 28;
-            this.search.UseVisualStyleBackColor = false;
-            this.search.Click += new System.EventHandler(this.search_Click);
-            // 
-            // nexTrip_AdventureDataSet
-            // 
-            this.nexTrip_AdventureDataSet.DataSetName = "NexTrip_AdventureDataSet";
-            this.nexTrip_AdventureDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.nexTrip_AdventureDataSet;
-            // 
-            // staffTableAdapter
-            // 
-            this.staffTableAdapter.ClearBeforeFill = true;
             // 
             // idstaffDataGridViewTextBoxColumn
             // 
@@ -542,6 +493,56 @@
             this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
             this.passwordDataGridViewTextBoxColumn.Width = 102;
             // 
+            // staffBindingSource
+            // 
+            this.staffBindingSource.DataMember = "Staff";
+            this.staffBindingSource.DataSource = this.nexTrip_AdventureDataSet;
+            // 
+            // nexTrip_AdventureDataSet
+            // 
+            this.nexTrip_AdventureDataSet.DataSetName = "NexTrip_AdventureDataSet";
+            this.nexTrip_AdventureDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(51, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(144, 25);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Employee Data";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(552, 493);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(178, 17);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Please fill in below to search";
+            // 
+            // search
+            // 
+            this.search.BackColor = System.Drawing.Color.Transparent;
+            this.search.BackgroundImage = global::Project_Kel5_Manajemen_Travel.Properties.Resources.Search;
+            this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.search.FlatAppearance.BorderSize = 0;
+            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.search.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.search.ForeColor = System.Drawing.SystemColors.Control;
+            this.search.Location = new System.Drawing.Point(932, 521);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(27, 29);
+            this.search.TabIndex = 28;
+            this.search.UseVisualStyleBackColor = false;
+            this.search.Click += new System.EventHandler(this.search_Click);
+            // 
+            // staffTableAdapter
+            // 
+            this.staffTableAdapter.ClearBeforeFill = true;
+            // 
             // UserEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,8 +557,8 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_AdventureDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nexTrip_AdventureDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

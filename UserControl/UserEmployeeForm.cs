@@ -222,12 +222,12 @@ namespace Project_Kel5_Manajemen_Travel
                 lbCreate.Visible = true;
                 lbEdit.Visible = false;
 
-                SqlCommand getMaxIdCmd = new SqlCommand("SELECT MAX(id_role) FROM Staff", connect);
+                SqlCommand getIdCmd = new SqlCommand("SELECT id_staff FROM Staff", connect);
                 string newId = "ST001";
                 try
                 {
                     connect.Open();
-                    object result = getMaxIdCmd.ExecuteScalar();
+                    object result = getIdCmd.ExecuteScalar();
                     if (result != DBNull.Value)
                     {
                         string currentId = result.ToString();
