@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.unitTravelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nexTrip_Adventure = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
             this.unitTravelTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.UnitTravelTableAdapter();
@@ -41,14 +41,14 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.creatBtn = new System.Windows.Forms.Button();
-            this.name = new System.Windows.Forms.TextBox();
-            this.email = new System.Windows.Forms.TextBox();
-            this.username = new System.Windows.Forms.TextBox();
+            this.policeNum = new System.Windows.Forms.TextBox();
+            this.merk = new System.Windows.Forms.TextBox();
+            this.capacity = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.phone = new System.Windows.Forms.TextBox();
+            this.type = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbxRole = new System.Windows.Forms.ComboBox();
+            this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
@@ -130,14 +130,14 @@
             this.panelEditCreate.Controls.Add(this.cancelBtn);
             this.panelEditCreate.Controls.Add(this.updateBtn);
             this.panelEditCreate.Controls.Add(this.creatBtn);
-            this.panelEditCreate.Controls.Add(this.name);
-            this.panelEditCreate.Controls.Add(this.email);
-            this.panelEditCreate.Controls.Add(this.username);
+            this.panelEditCreate.Controls.Add(this.policeNum);
+            this.panelEditCreate.Controls.Add(this.merk);
+            this.panelEditCreate.Controls.Add(this.capacity);
             this.panelEditCreate.Controls.Add(this.label5);
-            this.panelEditCreate.Controls.Add(this.phone);
+            this.panelEditCreate.Controls.Add(this.type);
             this.panelEditCreate.Controls.Add(this.label4);
             this.panelEditCreate.Controls.Add(this.label3);
-            this.panelEditCreate.Controls.Add(this.cbxRole);
+            this.panelEditCreate.Controls.Add(this.cbxStatus);
             this.panelEditCreate.Controls.Add(this.label2);
             this.panelEditCreate.Controls.Add(this.label1);
             this.panelEditCreate.Location = new System.Drawing.Point(56, 273);
@@ -179,6 +179,7 @@
             this.cancelBtn.TabIndex = 15;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = false;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // updateBtn
             // 
@@ -187,12 +188,13 @@
             this.updateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBtn.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.updateBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.updateBtn.Location = new System.Drawing.Point(722, 258);
+            this.updateBtn.Location = new System.Drawing.Point(722, 257);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(89, 32);
             this.updateBtn.TabIndex = 13;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = false;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // creatBtn
             // 
@@ -207,30 +209,31 @@
             this.creatBtn.TabIndex = 12;
             this.creatBtn.Text = "Create";
             this.creatBtn.UseVisualStyleBackColor = false;
+            this.creatBtn.Click += new System.EventHandler(this.creatBtn_Click);
             // 
-            // name
+            // policeNum
             // 
-            this.name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.name.Location = new System.Drawing.Point(223, 114);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(218, 20);
-            this.name.TabIndex = 6;
+            this.policeNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.policeNum.Location = new System.Drawing.Point(223, 114);
+            this.policeNum.Name = "policeNum";
+            this.policeNum.Size = new System.Drawing.Size(218, 20);
+            this.policeNum.TabIndex = 6;
             // 
-            // email
+            // merk
             // 
-            this.email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.email.Location = new System.Drawing.Point(223, 164);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(218, 20);
-            this.email.TabIndex = 7;
+            this.merk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.merk.Location = new System.Drawing.Point(593, 114);
+            this.merk.Name = "merk";
+            this.merk.Size = new System.Drawing.Size(218, 20);
+            this.merk.TabIndex = 7;
             // 
-            // username
+            // capacity
             // 
-            this.username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.username.Location = new System.Drawing.Point(593, 165);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(218, 20);
-            this.username.TabIndex = 10;
+            this.capacity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.capacity.Location = new System.Drawing.Point(593, 165);
+            this.capacity.Name = "capacity";
+            this.capacity.Size = new System.Drawing.Size(218, 20);
+            this.capacity.TabIndex = 10;
             // 
             // label5
             // 
@@ -242,13 +245,13 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Capacity :";
             // 
-            // phone
+            // type
             // 
-            this.phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.phone.Location = new System.Drawing.Point(223, 214);
-            this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(218, 20);
-            this.phone.TabIndex = 8;
+            this.type.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.type.Location = new System.Drawing.Point(223, 214);
+            this.type.Name = "type";
+            this.type.Size = new System.Drawing.Size(218, 20);
+            this.type.TabIndex = 8;
             // 
             // label4
             // 
@@ -270,15 +273,18 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Status :";
             // 
-            // cbxRole
+            // cbxStatus
             // 
-            this.cbxRole.DisplayMember = "id_role";
-            this.cbxRole.FormattingEnabled = true;
-            this.cbxRole.Location = new System.Drawing.Point(593, 114);
-            this.cbxRole.Name = "cbxRole";
-            this.cbxRole.Size = new System.Drawing.Size(218, 21);
-            this.cbxRole.TabIndex = 9;
-            this.cbxRole.ValueMember = "id_role";
+            this.cbxStatus.DisplayMember = "id_role";
+            this.cbxStatus.FormattingEnabled = true;
+            this.cbxStatus.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
+            this.cbxStatus.Location = new System.Drawing.Point(223, 164);
+            this.cbxStatus.Name = "cbxStatus";
+            this.cbxStatus.Size = new System.Drawing.Size(218, 21);
+            this.cbxStatus.TabIndex = 9;
+            this.cbxStatus.ValueMember = "id_role";
             // 
             // label2
             // 
@@ -312,6 +318,7 @@
             this.delete.TabIndex = 16;
             this.delete.Text = "Delete";
             this.delete.UseVisualStyleBackColor = false;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // label10
             // 
@@ -354,6 +361,7 @@
             this.cancelBtnSearch.TabIndex = 24;
             this.cancelBtnSearch.Text = "Cancel";
             this.cancelBtnSearch.UseVisualStyleBackColor = false;
+            this.cancelBtnSearch.Click += new System.EventHandler(this.cancelBtnSearch_Click);
             // 
             // create
             // 
@@ -367,6 +375,7 @@
             this.create.TabIndex = 22;
             this.create.Text = "Create";
             this.create.UseVisualStyleBackColor = false;
+            this.create.Click += new System.EventHandler(this.create_Click);
             // 
             // change
             // 
@@ -380,6 +389,7 @@
             this.change.TabIndex = 25;
             this.change.Text = "Change";
             this.change.UseVisualStyleBackColor = false;
+            this.change.Click += new System.EventHandler(this.change_Click);
             // 
             // employee_gridData
             // 
@@ -389,14 +399,14 @@
             this.employee_gridData.AllowUserToResizeRows = false;
             this.employee_gridData.AutoGenerateColumns = false;
             this.employee_gridData.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.employee_gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.employee_gridData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.employee_gridData.ColumnHeadersHeight = 30;
             this.employee_gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.employee_gridData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -416,48 +426,55 @@
             this.employee_gridData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.employee_gridData.Size = new System.Drawing.Size(908, 402);
             this.employee_gridData.TabIndex = 0;
+            this.employee_gridData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.unit_gridData_CellContentClick);
             // 
             // idunitDataGridViewTextBoxColumn
             // 
             this.idunitDataGridViewTextBoxColumn.DataPropertyName = "id_unit";
-            this.idunitDataGridViewTextBoxColumn.HeaderText = "id_unit";
+            this.idunitDataGridViewTextBoxColumn.HeaderText = "ID Unit";
             this.idunitDataGridViewTextBoxColumn.Name = "idunitDataGridViewTextBoxColumn";
             this.idunitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idunitDataGridViewTextBoxColumn.Width = 140;
             // 
             // nopolisiDataGridViewTextBoxColumn
             // 
             this.nopolisiDataGridViewTextBoxColumn.DataPropertyName = "no_polisi";
-            this.nopolisiDataGridViewTextBoxColumn.HeaderText = "no_polisi";
+            this.nopolisiDataGridViewTextBoxColumn.HeaderText = "Police Number";
             this.nopolisiDataGridViewTextBoxColumn.Name = "nopolisiDataGridViewTextBoxColumn";
             this.nopolisiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nopolisiDataGridViewTextBoxColumn.Width = 160;
             // 
             // statusunitDataGridViewTextBoxColumn
             // 
             this.statusunitDataGridViewTextBoxColumn.DataPropertyName = "status_unit";
-            this.statusunitDataGridViewTextBoxColumn.HeaderText = "status_unit";
+            this.statusunitDataGridViewTextBoxColumn.HeaderText = "Status";
             this.statusunitDataGridViewTextBoxColumn.Name = "statusunitDataGridViewTextBoxColumn";
             this.statusunitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusunitDataGridViewTextBoxColumn.Width = 140;
             // 
             // jenisunitDataGridViewTextBoxColumn
             // 
             this.jenisunitDataGridViewTextBoxColumn.DataPropertyName = "jenis_unit";
-            this.jenisunitDataGridViewTextBoxColumn.HeaderText = "jenis_unit";
+            this.jenisunitDataGridViewTextBoxColumn.HeaderText = "Type";
             this.jenisunitDataGridViewTextBoxColumn.Name = "jenisunitDataGridViewTextBoxColumn";
             this.jenisunitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.jenisunitDataGridViewTextBoxColumn.Width = 165;
             // 
             // merkunitDataGridViewTextBoxColumn
             // 
             this.merkunitDataGridViewTextBoxColumn.DataPropertyName = "merk_unit";
-            this.merkunitDataGridViewTextBoxColumn.HeaderText = "merk_unit";
+            this.merkunitDataGridViewTextBoxColumn.HeaderText = "Merk";
             this.merkunitDataGridViewTextBoxColumn.Name = "merkunitDataGridViewTextBoxColumn";
             this.merkunitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.merkunitDataGridViewTextBoxColumn.Width = 160;
             // 
             // kapasitasDataGridViewTextBoxColumn
             // 
             this.kapasitasDataGridViewTextBoxColumn.DataPropertyName = "kapasitas";
-            this.kapasitasDataGridViewTextBoxColumn.HeaderText = "kapasitas";
+            this.kapasitasDataGridViewTextBoxColumn.HeaderText = "Capacity";
             this.kapasitasDataGridViewTextBoxColumn.Name = "kapasitasDataGridViewTextBoxColumn";
             this.kapasitasDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kapasitasDataGridViewTextBoxColumn.Width = 140;
             // 
             // label7
             // 
@@ -493,6 +510,7 @@
             this.search.Size = new System.Drawing.Size(27, 29);
             this.search.TabIndex = 28;
             this.search.UseVisualStyleBackColor = false;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
             // UserUnitForm
             // 
@@ -526,14 +544,14 @@
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button updateBtn;
         private System.Windows.Forms.Button creatBtn;
-        private System.Windows.Forms.TextBox name;
-        private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.TextBox username;
+        private System.Windows.Forms.TextBox policeNum;
+        private System.Windows.Forms.TextBox merk;
+        private System.Windows.Forms.TextBox capacity;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox phone;
+        private System.Windows.Forms.TextBox type;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbxRole;
+        private System.Windows.Forms.ComboBox cbxStatus;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button delete;
@@ -544,14 +562,14 @@
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Button change;
         private System.Windows.Forms.DataGridView employee_gridData;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button search;
         private System.Windows.Forms.DataGridViewTextBoxColumn idunitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nopolisiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusunitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn jenisunitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn merkunitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kapasitasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button search;
     }
 }

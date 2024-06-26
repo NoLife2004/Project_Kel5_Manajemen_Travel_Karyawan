@@ -19,6 +19,7 @@ namespace Project_Kel5_Manajemen_Travel
     {
         SqlConnection connect = new SqlConnection("integrated security=true; data source=.; initial catalog=NexTrip_Adventure");
         private DataSet NexTrip_Adventure;
+
         public UserEmployeeForm()
         {
             InitializeComponent();
@@ -156,13 +157,17 @@ namespace Project_Kel5_Manajemen_Travel
             {
                 MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            panelEditCreate.Visible = true;
-            username.Enabled = false; 
-            password.Enabled = false;
-            creatBtn.Visible = false;
-            updateBtn.Visible = true;
-            lbEdit.Visible = true;
-            lbCreate.Visible = false;
+            else
+            {
+                panelEditCreate.Visible = true;
+                username.Enabled = false;
+                password.Enabled = false;
+                creatBtn.Visible = false;
+                updateBtn.Visible = true;
+                lbEdit.Visible = true;
+                lbCreate.Visible = false;
+            }
+            
         }
 
         private void delete_Click(object sender, EventArgs e)
@@ -222,18 +227,22 @@ namespace Project_Kel5_Manajemen_Travel
                 lbCreate.Visible = true;
                 lbEdit.Visible = false;
 
-                SqlCommand getIdCmd = new SqlCommand("SELECT id_staff FROM Staff", connect);
+                SqlCommand getMaxIdCmd = new SqlCommand("SELECT MAX(id_staff) FROM Staff", connect);
                 string newId = "ST001";
                 try
                 {
                     connect.Open();
-                    object result = getIdCmd.ExecuteScalar();
+                    object result = getMaxIdCmd.ExecuteScalar();
                     if (result != DBNull.Value)
                     {
                         string currentId = result.ToString();
                         int digit = int.Parse(currentId.Substring(3));
                         digit++;
                         newId = "ST" + digit.ToString().PadLeft(3, '0');
+                    }
+                    else
+                    {
+                        newId = "ST001";
                     }
                 }
                 catch (SqlException ex)
@@ -264,6 +273,8 @@ namespace Project_Kel5_Manajemen_Travel
             phone.Text = string.Empty;
             username.Text = string.Empty;
             password.Text = string.Empty;
+            username.Enabled = true;
+            password.Enabled = true;
             panelEditCreate.Visible = false;
             create.Enabled = true;
             fillTxt.Text = string.Empty;
@@ -296,7 +307,7 @@ namespace Project_Kel5_Manajemen_Travel
                     connect.Open();
                     insert.ExecuteNonQuery();
 
-                    MessageBox.Show("Customer create successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Employee create successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshDataSet();
                     panelEditCreate.Visible = false;
                 }
@@ -357,15 +368,17 @@ namespace Project_Kel5_Manajemen_Travel
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Role updated successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Employee updated successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshDataSet();
                         fillTxt.Text = string.Empty;
                         panelEditCreate.Visible = false;
+                        username.Enabled = true;
+                        password.Enabled = true;
                         create.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("Role updated failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Employee updated failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (SqlException ex)

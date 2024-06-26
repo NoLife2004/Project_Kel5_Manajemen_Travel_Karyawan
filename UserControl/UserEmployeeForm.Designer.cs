@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelEditCreate = new System.Windows.Forms.Panel();
+            this.lbID = new System.Windows.Forms.Label();
             this.lbEdit = new System.Windows.Forms.Label();
             this.lbCreate = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbID = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.fillTxt = new System.Windows.Forms.TextBox();
@@ -104,6 +104,18 @@
             this.panelEditCreate.Size = new System.Drawing.Size(909, 344);
             this.panelEditCreate.TabIndex = 0;
             this.panelEditCreate.Visible = false;
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.BackColor = System.Drawing.Color.Transparent;
+            this.lbID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Location = new System.Drawing.Point(585, 260);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(12, 17);
+            this.lbID.TabIndex = 30;
+            this.lbID.Text = " ";
+            this.lbID.Visible = false;
             // 
             // lbEdit
             // 
@@ -303,18 +315,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1020, 639);
             this.panel2.TabIndex = 13;
-            // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.BackColor = System.Drawing.Color.Transparent;
-            this.lbID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(585, 260);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(12, 17);
-            this.lbID.TabIndex = 30;
-            this.lbID.Text = " ";
-            this.lbID.Visible = false;
             // 
             // delete
             // 
