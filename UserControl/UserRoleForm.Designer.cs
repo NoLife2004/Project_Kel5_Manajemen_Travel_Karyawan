@@ -66,6 +66,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.insertName = new System.Windows.Forms.TextBox();
             this.confirm = new System.Windows.Forms.Button();
+            this.cancelEdit = new System.Windows.Forms.Button();
             this.showPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roleBindingSource)).BeginInit();
@@ -311,6 +312,7 @@
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(260, 27);
             this.name.TabIndex = 7;
+            this.name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.name_KeyPress);
             // 
             // label3
             // 
@@ -335,6 +337,7 @@
             // editPanel
             // 
             this.editPanel.BackColor = System.Drawing.Color.White;
+            this.editPanel.Controls.Add(this.cancelEdit);
             this.editPanel.Controls.Add(this.idRole);
             this.editPanel.Controls.Add(this.label12);
             this.editPanel.Controls.Add(this.label10);
@@ -480,6 +483,7 @@
             this.insertName.Name = "insertName";
             this.insertName.Size = new System.Drawing.Size(260, 27);
             this.insertName.TabIndex = 7;
+            this.insertName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.insertName_KeyPress);
             // 
             // confirm
             // 
@@ -494,6 +498,20 @@
             this.confirm.Text = "Confirm";
             this.confirm.UseVisualStyleBackColor = false;
             this.confirm.Click += new System.EventHandler(this.confirm_Click);
+            // 
+            // cancelEdit
+            // 
+            this.cancelEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(87)))), ((int)(((byte)(122)))));
+            this.cancelEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelEdit.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.cancelEdit.ForeColor = System.Drawing.SystemColors.Control;
+            this.cancelEdit.Location = new System.Drawing.Point(62, 180);
+            this.cancelEdit.Name = "cancelEdit";
+            this.cancelEdit.Size = new System.Drawing.Size(89, 32);
+            this.cancelEdit.TabIndex = 25;
+            this.cancelEdit.Text = "Cancel";
+            this.cancelEdit.UseVisualStyleBackColor = false;
+            this.cancelEdit.Click += new System.EventHandler(this.cancelEdit_Click);
             // 
             // UserRoleForm
             // 
@@ -556,5 +574,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label idRole;
         private System.Windows.Forms.Label insertId;
+        private System.Windows.Forms.Button cancelEdit;
     }
 }

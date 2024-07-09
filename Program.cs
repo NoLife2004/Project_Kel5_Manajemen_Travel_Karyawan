@@ -17,8 +17,8 @@ namespace Project_Kel5_Manajemen_Travel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
-            //Application.Run(new FromLogin());
+            //Application.Run(new MainForm());
+            Application.Run(new FromLogin());
         }
     }
 }

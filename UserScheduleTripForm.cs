@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Project_Kel5_Manajemen_Travel
 {
-    public partial class UserCustomersForm : UserControl
+    public partial class UserScheduleTripForm : UserControl
     {
-        public UserCustomersForm()
+        public UserScheduleTripForm()
         {
             InitializeComponent();
         }

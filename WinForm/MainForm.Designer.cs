@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -45,11 +46,14 @@
             this.busTicketBtn = new System.Windows.Forms.Button();
             this.tripBundleBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.userScheduleTripForm = new Project_Kel5_Manajemen_Travel.UserScheduleTripForm();
+            this.userScheduleForm = new Project_Kel5_Manajemen_Travel.UserScheduleForm();
+            this.userCustomersForm = new Project_Kel5_Manajemen_Travel.UserCustomersForm();
+            this.userTripBundleForm = new Project_Kel5_Manajemen_Travel.UserTripBundleForm();
+            this.userPromosForm = new Project_Kel5_Manajemen_Travel.UserPromosForm();
+            this.userUnitForm = new Project_Kel5_Manajemen_Travel.UserUnitForm();
             this.userEmployeeForm = new Project_Kel5_Manajemen_Travel.UserEmployeeForm();
             this.userRoleForm = new Project_Kel5_Manajemen_Travel.UserRoleForm();
-            this.userUnitForm = new Project_Kel5_Manajemen_Travel.UserUnitForm();
-            this.userPromosForm = new Project_Kel5_Manajemen_Travel.UserPromosForm();
-            this.userTripBundleForm = new Project_Kel5_Manajemen_Travel.UserTripBundleForm();
             this.topPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,7 +86,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.BackgroundImage = global::Project_Kel5_Manajemen_Travel.Properties.Resources.Close;
+            this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
@@ -143,7 +147,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Project_Kel5_Manajemen_Travel.Properties.Resources.th__5__removebg_preview;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(18, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(185, 180);
@@ -208,7 +212,7 @@
             this.Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Logout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.Logout.ForeColor = System.Drawing.SystemColors.Control;
-            this.Logout.Image = global::Project_Kel5_Manajemen_Travel.Properties.Resources.Logout;
+            this.Logout.Image = ((System.Drawing.Image)(resources.GetObject("Logout.Image")));
             this.Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Logout.Location = new System.Drawing.Point(16, 634);
             this.Logout.Name = "Logout";
@@ -230,6 +234,7 @@
             this.customersBtn.TabIndex = 3;
             this.customersBtn.Text = "Customers";
             this.customersBtn.UseVisualStyleBackColor = true;
+            this.customersBtn.Click += new System.EventHandler(this.customersBtn_Click);
             // 
             // scheduleBtn
             // 
@@ -242,6 +247,7 @@
             this.scheduleBtn.TabIndex = 2;
             this.scheduleBtn.Text = "Show Schedule";
             this.scheduleBtn.UseVisualStyleBackColor = true;
+            this.scheduleBtn.Click += new System.EventHandler(this.scheduleBtn_Click);
             // 
             // busTicketBtn
             // 
@@ -254,6 +260,7 @@
             this.busTicketBtn.TabIndex = 1;
             this.busTicketBtn.Text = "Order Bus Tickets";
             this.busTicketBtn.UseVisualStyleBackColor = true;
+            this.busTicketBtn.Click += new System.EventHandler(this.busTicketBtn_Click);
             // 
             // tripBundleBtn
             // 
@@ -270,6 +277,9 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.userScheduleTripForm);
+            this.panel2.Controls.Add(this.userScheduleForm);
+            this.panel2.Controls.Add(this.userCustomersForm);
             this.panel2.Controls.Add(this.userTripBundleForm);
             this.panel2.Controls.Add(this.userPromosForm);
             this.panel2.Controls.Add(this.userUnitForm);
@@ -280,6 +290,54 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1060, 688);
             this.panel2.TabIndex = 10;
+            // 
+            // userScheduleTripForm
+            // 
+            this.userScheduleTripForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.userScheduleTripForm.Location = new System.Drawing.Point(0, 0);
+            this.userScheduleTripForm.Name = "userScheduleTripForm";
+            this.userScheduleTripForm.Size = new System.Drawing.Size(1060, 688);
+            this.userScheduleTripForm.TabIndex = 8;
+            // 
+            // userScheduleForm
+            // 
+            this.userScheduleForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.userScheduleForm.Location = new System.Drawing.Point(0, 0);
+            this.userScheduleForm.Name = "userScheduleForm";
+            this.userScheduleForm.Size = new System.Drawing.Size(1060, 688);
+            this.userScheduleForm.TabIndex = 7;
+            // 
+            // userCustomersForm
+            // 
+            this.userCustomersForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.userCustomersForm.Location = new System.Drawing.Point(0, 0);
+            this.userCustomersForm.Name = "userCustomersForm";
+            this.userCustomersForm.Size = new System.Drawing.Size(1060, 688);
+            this.userCustomersForm.TabIndex = 6;
+            // 
+            // userTripBundleForm
+            // 
+            this.userTripBundleForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.userTripBundleForm.Location = new System.Drawing.Point(0, 0);
+            this.userTripBundleForm.Name = "userTripBundleForm";
+            this.userTripBundleForm.Size = new System.Drawing.Size(1060, 688);
+            this.userTripBundleForm.TabIndex = 5;
+            // 
+            // userPromosForm
+            // 
+            this.userPromosForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.userPromosForm.Location = new System.Drawing.Point(0, 0);
+            this.userPromosForm.Name = "userPromosForm";
+            this.userPromosForm.Size = new System.Drawing.Size(1060, 688);
+            this.userPromosForm.TabIndex = 4;
+            // 
+            // userUnitForm
+            // 
+            this.userUnitForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.userUnitForm.Location = new System.Drawing.Point(0, 0);
+            this.userUnitForm.Name = "userUnitForm";
+            this.userUnitForm.Size = new System.Drawing.Size(1060, 688);
+            this.userUnitForm.TabIndex = 3;
             // 
             // userEmployeeForm
             // 
@@ -296,30 +354,6 @@
             this.userRoleForm.Name = "userRoleForm";
             this.userRoleForm.Size = new System.Drawing.Size(1060, 688);
             this.userRoleForm.TabIndex = 0;
-            // 
-            // userUnitForm
-            // 
-            this.userUnitForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
-            this.userUnitForm.Location = new System.Drawing.Point(0, 0);
-            this.userUnitForm.Name = "userUnitForm";
-            this.userUnitForm.Size = new System.Drawing.Size(1060, 688);
-            this.userUnitForm.TabIndex = 3;
-            // 
-            // userPromosForm
-            // 
-            this.userPromosForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
-            this.userPromosForm.Location = new System.Drawing.Point(0, 0);
-            this.userPromosForm.Name = "userPromosForm";
-            this.userPromosForm.Size = new System.Drawing.Size(1060, 688);
-            this.userPromosForm.TabIndex = 4;
-            // 
-            // userTripBundleForm
-            // 
-            this.userTripBundleForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
-            this.userTripBundleForm.Location = new System.Drawing.Point(0, 0);
-            this.userTripBundleForm.Name = "userTripBundleForm";
-            this.userTripBundleForm.Size = new System.Drawing.Size(1060, 688);
-            this.userTripBundleForm.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -367,5 +401,8 @@
         private UserTripBundleForm userTripBundleForm;
         private UserPromosForm userPromosForm;
         private UserUnitForm userUnitForm;
+        private UserCustomersForm userCustomersForm;
+        private UserScheduleForm userScheduleForm;
+        private UserScheduleTripForm userScheduleTripForm;
     }
 }

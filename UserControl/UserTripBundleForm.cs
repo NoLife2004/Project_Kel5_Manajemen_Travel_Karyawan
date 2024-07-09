@@ -52,10 +52,14 @@ namespace Project_Kel5_Manajemen_Travel
 
             try
             {
-                SqlCommand mycmd = new SqlCommand();
-                mycmd.Connection = connect;
-                mycmd.CommandText = "SELECT * FROM Paket_Trip";
-                mycmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = connect;
+                cmd.CommandText = "SELECT * FROM Paket_Trip";
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataSet, "Paket_Trip");
             }
             catch (Exception ex)
             {
@@ -81,7 +85,7 @@ namespace Project_Kel5_Manajemen_Travel
             fillTxt.Text = string.Empty;
             editPanel.Visible = false;
             createPanel.Visible = false;
-            label5.Visible = true;
+            lbIDCreate.Visible = true;
             btnCreate.Enabled = true;
             btnChange.Enabled = true;
         }
@@ -95,7 +99,7 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = connect;
-                cmd.CommandText = "SELECT * FROM Paket_Trip WHERE nama_paket LIKE @keyword";
+                cmd.CommandText = "SELECT * FROM Paket_Trip WHERE nama_paket LIKE @keyword OR id_paket LIKE @keyword";
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
@@ -149,27 +153,42 @@ namespace Project_Kel5_Manajemen_Travel
             }
 
             editPanel.Visible = true;
-            label5.Visible = false;
+            lbIDCreate.Visible = false;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
             createPanel.Visible = true;
-            label5.Visible = false;
+            lbIDCreate.Visible = true;
             btnChange.Enabled = false;
 
-            SqlCommand getMaxIdCmd = new SqlCommand("SELECT MAX(id_paket) FROM Paket_Trip", connect);
             string newId = "PKT001";
+            int minId = 1;
+            int maxId = int.MaxValue;
+
+            SqlCommand getIdCmd = new SqlCommand("SELECT id_paket FROM Paket_Trip", connect);
             try
             {
                 connect.Open();
-                object result = getMaxIdCmd.ExecuteScalar();
-                if (result != DBNull.Value)
+                SqlDataReader reader = getIdCmd.ExecuteReader();
+                List<int> existingIds = new List<int>();
+
+                while (reader.Read())
                 {
-                    string currentId = result.ToString();
-                    int digit = int.Parse(currentId.Substring(3));
-                    digit++;
-                    newId = "PKT" + digit.ToString().PadLeft(3, '0');
+                    string currentId = reader["id_paket"].ToString();
+                    int id = int.Parse(currentId.Substring(2));
+                    existingIds.Add(id);
+                }
+
+                reader.Close();
+
+                for (int i = minId; i <= maxId; i++)
+                {
+                    if (!existingIds.Contains(i))
+                    {
+                        newId = "PKT" + i.ToString().PadLeft(3, '0');
+                        break;
+                    }
                 }
             }
             catch (Exception ex)

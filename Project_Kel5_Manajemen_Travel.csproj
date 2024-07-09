@@ -12,6 +12,22 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Codingan VSCode\Project\Semester_2\PRG2\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +47,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>4FAA4DA11FE3411B2BFD23A5D2EBD0229BD8E6AA</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Project_Kel5_Manajemen_Travel_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -57,11 +85,23 @@
     <Compile Include="UserControl\UserEmployeeForm.Designer.cs">
       <DependentUpon>UserEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserCustomersForm.cs">
+    <Compile Include="UserControl\UserCustomersForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserCustomersForm.Designer.cs">
+    <Compile Include="UserControl\UserCustomersForm.Designer.cs">
       <DependentUpon>UserCustomersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserScheduleForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserScheduleForm.Designer.cs">
+      <DependentUpon>UserScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserScheduleTripForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserScheduleTripForm.Designer.cs">
+      <DependentUpon>UserScheduleTripForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WinForm\MainForm.cs">
       <SubType>Form</SubType>
@@ -110,8 +150,14 @@
     <EmbeddedResource Include="UserControl\UserEmployeeForm.resx">
       <DependentUpon>UserEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCustomersForm.resx">
+    <EmbeddedResource Include="UserControl\UserCustomersForm.resx">
       <DependentUpon>UserCustomersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\UserScheduleForm.resx">
+      <DependentUpon>UserScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserScheduleTripForm.resx">
+      <DependentUpon>UserScheduleTripForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -178,6 +224,18 @@
     <Content Include="Assets\Logout.png" />
     <Content Include="Assets\Refresh.png" />
     <Content Include="Assets\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

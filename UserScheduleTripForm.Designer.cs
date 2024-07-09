@@ -1,6 +1,6 @@
 ﻿namespace Project_Kel5_Manajemen_Travel
 {
-    partial class UserEmployeeForm
+    partial class UserScheduleTripForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbID = new System.Windows.Forms.Label();
             this.panelEditCreate = new System.Windows.Forms.Panel();
             this.lbEdit = new System.Windows.Forms.Label();
             this.lbCreate = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.updateBtn = new System.Windows.Forms.Button();
             this.creatBtn = new System.Windows.Forms.Button();
-            this.name = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
             this.password = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,8 +49,6 @@
             this.cbxRole = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbID = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.delete = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.fillTxt = new System.Windows.Forms.TextBox();
@@ -58,35 +57,73 @@
             this.create = new System.Windows.Forms.Button();
             this.change = new System.Windows.Forms.Button();
             this.employee_gridData = new System.Windows.Forms.DataGridView();
-            this.idstaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idroleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namastaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notelpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staffBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nexTrip_AdventureDataSet = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.search = new System.Windows.Forms.Button();
-            this.staffTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.StaffTableAdapter();
-            this.panelEditCreate.SuspendLayout();
+            this.nexTrip_AdventureDataSet = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
+            this.jadwalTripBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.jadwal_TripTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.Jadwal_TripTableAdapter();
+            this.idjadwalTripDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idstaffDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idpaketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanggalberangkatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.waktuberangkatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanggalpulangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.waktupulangDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusjadwalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kapasitasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hargaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbIdStaff = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
+            this.panelEditCreate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nexTrip_AdventureDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jadwalTripBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.CausesValidation = false;
+            this.panel2.Controls.Add(this.lbID);
+            this.panel2.Controls.Add(this.panelEditCreate);
+            this.panel2.Controls.Add(this.delete);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.fillTxt);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.cancelBtnSearch);
+            this.panel2.Controls.Add(this.create);
+            this.panel2.Controls.Add(this.change);
+            this.panel2.Controls.Add(this.employee_gridData);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.search);
+            this.panel2.Location = new System.Drawing.Point(20, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1020, 639);
+            this.panel2.TabIndex = 14;
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.BackColor = System.Drawing.Color.Transparent;
+            this.lbID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Location = new System.Drawing.Point(984, 456);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(12, 17);
+            this.lbID.TabIndex = 30;
+            this.lbID.Text = " ";
             // 
             // panelEditCreate
             // 
             this.panelEditCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.panelEditCreate.Controls.Add(this.cbIdStaff);
             this.panelEditCreate.Controls.Add(this.lbEdit);
             this.panelEditCreate.Controls.Add(this.lbCreate);
             this.panelEditCreate.Controls.Add(this.cancelBtn);
             this.panelEditCreate.Controls.Add(this.updateBtn);
             this.panelEditCreate.Controls.Add(this.creatBtn);
-            this.panelEditCreate.Controls.Add(this.name);
             this.panelEditCreate.Controls.Add(this.email);
             this.panelEditCreate.Controls.Add(this.password);
             this.panelEditCreate.Controls.Add(this.label6);
@@ -110,9 +147,9 @@
             this.lbEdit.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEdit.Location = new System.Drawing.Point(57, 55);
             this.lbEdit.Name = "lbEdit";
-            this.lbEdit.Size = new System.Drawing.Size(183, 25);
+            this.lbEdit.Size = new System.Drawing.Size(171, 25);
             this.lbEdit.TabIndex = 31;
-            this.lbEdit.Text = "Edit Employee Data";
+            this.lbEdit.Text = "Edit Schedule Trip";
             // 
             // lbCreate
             // 
@@ -120,9 +157,9 @@
             this.lbCreate.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCreate.Location = new System.Drawing.Point(57, 55);
             this.lbCreate.Name = "lbCreate";
-            this.lbCreate.Size = new System.Drawing.Size(206, 25);
+            this.lbCreate.Size = new System.Drawing.Size(194, 25);
             this.lbCreate.TabIndex = 30;
-            this.lbCreate.Text = "Create Employee Data";
+            this.lbCreate.Text = "Create Schedule Trip";
             // 
             // cancelBtn
             // 
@@ -137,7 +174,6 @@
             this.cancelBtn.TabIndex = 15;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = false;
-            this.cancelBtn.Click += new System.EventHandler(this.cancel_Click);
             // 
             // updateBtn
             // 
@@ -152,7 +188,6 @@
             this.updateBtn.TabIndex = 13;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = false;
-            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // creatBtn
             // 
@@ -167,16 +202,6 @@
             this.creatBtn.TabIndex = 12;
             this.creatBtn.Text = "Create";
             this.creatBtn.UseVisualStyleBackColor = false;
-            this.creatBtn.Click += new System.EventHandler(this.creatBtn_Click);
-            // 
-            // name
-            // 
-            this.name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.name.Location = new System.Drawing.Point(223, 114);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(218, 20);
-            this.name.TabIndex = 6;
-            this.name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.name_KeyPress);
             // 
             // email
             // 
@@ -185,7 +210,6 @@
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(218, 20);
             this.email.TabIndex = 7;
-            this.email.Leave += new System.EventHandler(this.email_Leave);
             // 
             // password
             // 
@@ -230,8 +254,6 @@
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(218, 20);
             this.phone.TabIndex = 8;
-            this.phone.TextChanged += new System.EventHandler(this.phone_TextChanged);
-            this.phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phone_KeyPress);
             // 
             // label4
             // 
@@ -277,42 +299,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(98, 114);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 17);
+            this.label1.Size = new System.Drawing.Size(57, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Name :";
-            // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.BackColor = System.Drawing.Color.Transparent;
-            this.lbID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(984, 456);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(12, 17);
-            this.lbID.TabIndex = 30;
-            this.lbID.Text = " ";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.CausesValidation = false;
-            this.panel2.Controls.Add(this.lbID);
-            this.panel2.Controls.Add(this.panelEditCreate);
-            this.panel2.Controls.Add(this.delete);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.fillTxt);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.cancelBtnSearch);
-            this.panel2.Controls.Add(this.create);
-            this.panel2.Controls.Add(this.change);
-            this.panel2.Controls.Add(this.employee_gridData);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.search);
-            this.panel2.Location = new System.Drawing.Point(20, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1020, 639);
-            this.panel2.TabIndex = 13;
+            this.label1.Text = "ID Staff :";
             // 
             // delete
             // 
@@ -326,17 +315,16 @@
             this.delete.TabIndex = 16;
             this.delete.Text = "Delete";
             this.delete.UseVisualStyleBackColor = false;
-            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(808, 53);
+            this.label10.Location = new System.Drawing.Point(820, 53);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(156, 15);
+            this.label10.Size = new System.Drawing.Size(144, 15);
             this.label10.TabIndex = 29;
-            this.label10.Text = "Welcome to Employee Data ";
+            this.label10.Text = "Welcome to Schedule Trip\r\n";
             // 
             // fillTxt
             // 
@@ -369,7 +357,6 @@
             this.cancelBtnSearch.TabIndex = 24;
             this.cancelBtnSearch.Text = "Cancel";
             this.cancelBtnSearch.UseVisualStyleBackColor = false;
-            this.cancelBtnSearch.Click += new System.EventHandler(this.cancelBtnSearch_Click);
             // 
             // create
             // 
@@ -383,7 +370,6 @@
             this.create.TabIndex = 22;
             this.create.Text = "Create";
             this.create.UseVisualStyleBackColor = false;
-            this.create.Click += new System.EventHandler(this.create_Click);
             // 
             // change
             // 
@@ -397,7 +383,6 @@
             this.change.TabIndex = 25;
             this.change.Text = "Change";
             this.change.UseVisualStyleBackColor = false;
-            this.change.Click += new System.EventHandler(this.change_Click);
             // 
             // employee_gridData
             // 
@@ -418,14 +403,18 @@
             this.employee_gridData.ColumnHeadersHeight = 30;
             this.employee_gridData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.employee_gridData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idjadwalTripDataGridViewTextBoxColumn,
             this.idstaffDataGridViewTextBoxColumn,
-            this.idroleDataGridViewTextBoxColumn,
-            this.namastaffDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.notelpDataGridViewTextBoxColumn,
-            this.usernameDataGridViewTextBoxColumn,
-            this.passwordDataGridViewTextBoxColumn});
-            this.employee_gridData.DataSource = this.staffBindingSource;
+            this.idpaketDataGridViewTextBoxColumn,
+            this.idunitDataGridViewTextBoxColumn,
+            this.tanggalberangkatDataGridViewTextBoxColumn,
+            this.waktuberangkatDataGridViewTextBoxColumn,
+            this.tanggalpulangDataGridViewTextBoxColumn,
+            this.waktupulangDataGridViewTextBoxColumn,
+            this.statusjadwalDataGridViewTextBoxColumn,
+            this.kapasitasDataGridViewTextBoxColumn,
+            this.hargaDataGridViewTextBoxColumn});
+            this.employee_gridData.DataSource = this.jadwalTripBindingSource;
             this.employee_gridData.EnableHeadersVisualStyles = false;
             this.employee_gridData.Location = new System.Drawing.Point(56, 71);
             this.employee_gridData.Name = "employee_gridData";
@@ -435,71 +424,6 @@
             this.employee_gridData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.employee_gridData.Size = new System.Drawing.Size(908, 402);
             this.employee_gridData.TabIndex = 0;
-            this.employee_gridData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employee_gridData_CellContentClick);
-            // 
-            // idstaffDataGridViewTextBoxColumn
-            // 
-            this.idstaffDataGridViewTextBoxColumn.DataPropertyName = "id_staff";
-            this.idstaffDataGridViewTextBoxColumn.HeaderText = "ID Employee";
-            this.idstaffDataGridViewTextBoxColumn.Name = "idstaffDataGridViewTextBoxColumn";
-            this.idstaffDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idroleDataGridViewTextBoxColumn
-            // 
-            this.idroleDataGridViewTextBoxColumn.DataPropertyName = "id_role";
-            this.idroleDataGridViewTextBoxColumn.HeaderText = "ID Role";
-            this.idroleDataGridViewTextBoxColumn.Name = "idroleDataGridViewTextBoxColumn";
-            this.idroleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // namastaffDataGridViewTextBoxColumn
-            // 
-            this.namastaffDataGridViewTextBoxColumn.DataPropertyName = "nama_staff";
-            this.namastaffDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.namastaffDataGridViewTextBoxColumn.Name = "namastaffDataGridViewTextBoxColumn";
-            this.namastaffDataGridViewTextBoxColumn.ReadOnly = true;
-            this.namastaffDataGridViewTextBoxColumn.Width = 190;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "E-Mail";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // notelpDataGridViewTextBoxColumn
-            // 
-            this.notelpDataGridViewTextBoxColumn.DataPropertyName = "no_telp";
-            this.notelpDataGridViewTextBoxColumn.HeaderText = "No Telp";
-            this.notelpDataGridViewTextBoxColumn.Name = "notelpDataGridViewTextBoxColumn";
-            this.notelpDataGridViewTextBoxColumn.ReadOnly = true;
-            this.notelpDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usernameDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            this.passwordDataGridViewTextBoxColumn.Width = 102;
-            // 
-            // staffBindingSource
-            // 
-            this.staffBindingSource.DataMember = "Staff";
-            this.staffBindingSource.DataSource = this.nexTrip_AdventureDataSet;
-            // 
-            // nexTrip_AdventureDataSet
-            // 
-            this.nexTrip_AdventureDataSet.DataSetName = "NexTrip_AdventureDataSet";
-            this.nexTrip_AdventureDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label7
             // 
@@ -507,9 +431,9 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(51, 31);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 25);
+            this.label7.Size = new System.Drawing.Size(132, 25);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Employee Data";
+            this.label7.Text = "Schedule Trip";
             // 
             // label8
             // 
@@ -535,39 +459,136 @@
             this.search.Size = new System.Drawing.Size(27, 29);
             this.search.TabIndex = 28;
             this.search.UseVisualStyleBackColor = false;
-            this.search.Click += new System.EventHandler(this.search_Click);
             // 
-            // staffTableAdapter
+            // nexTrip_AdventureDataSet
             // 
-            this.staffTableAdapter.ClearBeforeFill = true;
+            this.nexTrip_AdventureDataSet.DataSetName = "NexTrip_AdventureDataSet";
+            this.nexTrip_AdventureDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // UserEmployeeForm
+            // jadwalTripBindingSource
+            // 
+            this.jadwalTripBindingSource.DataMember = "Jadwal_Trip";
+            this.jadwalTripBindingSource.DataSource = this.nexTrip_AdventureDataSet;
+            // 
+            // jadwal_TripTableAdapter
+            // 
+            this.jadwal_TripTableAdapter.ClearBeforeFill = true;
+            // 
+            // idjadwalTripDataGridViewTextBoxColumn
+            // 
+            this.idjadwalTripDataGridViewTextBoxColumn.DataPropertyName = "id_jadwalTrip";
+            this.idjadwalTripDataGridViewTextBoxColumn.HeaderText = "id_jadwalTrip";
+            this.idjadwalTripDataGridViewTextBoxColumn.Name = "idjadwalTripDataGridViewTextBoxColumn";
+            this.idjadwalTripDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idstaffDataGridViewTextBoxColumn
+            // 
+            this.idstaffDataGridViewTextBoxColumn.DataPropertyName = "id_staff";
+            this.idstaffDataGridViewTextBoxColumn.HeaderText = "id_staff";
+            this.idstaffDataGridViewTextBoxColumn.Name = "idstaffDataGridViewTextBoxColumn";
+            this.idstaffDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idpaketDataGridViewTextBoxColumn
+            // 
+            this.idpaketDataGridViewTextBoxColumn.DataPropertyName = "id_paket";
+            this.idpaketDataGridViewTextBoxColumn.HeaderText = "id_paket";
+            this.idpaketDataGridViewTextBoxColumn.Name = "idpaketDataGridViewTextBoxColumn";
+            this.idpaketDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idunitDataGridViewTextBoxColumn
+            // 
+            this.idunitDataGridViewTextBoxColumn.DataPropertyName = "id_unit";
+            this.idunitDataGridViewTextBoxColumn.HeaderText = "id_unit";
+            this.idunitDataGridViewTextBoxColumn.Name = "idunitDataGridViewTextBoxColumn";
+            this.idunitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tanggalberangkatDataGridViewTextBoxColumn
+            // 
+            this.tanggalberangkatDataGridViewTextBoxColumn.DataPropertyName = "tanggal_berangkat";
+            this.tanggalberangkatDataGridViewTextBoxColumn.HeaderText = "tanggal_berangkat";
+            this.tanggalberangkatDataGridViewTextBoxColumn.Name = "tanggalberangkatDataGridViewTextBoxColumn";
+            this.tanggalberangkatDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // waktuberangkatDataGridViewTextBoxColumn
+            // 
+            this.waktuberangkatDataGridViewTextBoxColumn.DataPropertyName = "waktu_berangkat";
+            this.waktuberangkatDataGridViewTextBoxColumn.HeaderText = "waktu_berangkat";
+            this.waktuberangkatDataGridViewTextBoxColumn.Name = "waktuberangkatDataGridViewTextBoxColumn";
+            this.waktuberangkatDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tanggalpulangDataGridViewTextBoxColumn
+            // 
+            this.tanggalpulangDataGridViewTextBoxColumn.DataPropertyName = "tanggal_pulang";
+            this.tanggalpulangDataGridViewTextBoxColumn.HeaderText = "tanggal_pulang";
+            this.tanggalpulangDataGridViewTextBoxColumn.Name = "tanggalpulangDataGridViewTextBoxColumn";
+            this.tanggalpulangDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // waktupulangDataGridViewTextBoxColumn
+            // 
+            this.waktupulangDataGridViewTextBoxColumn.DataPropertyName = "waktu_pulang";
+            this.waktupulangDataGridViewTextBoxColumn.HeaderText = "waktu_pulang";
+            this.waktupulangDataGridViewTextBoxColumn.Name = "waktupulangDataGridViewTextBoxColumn";
+            this.waktupulangDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusjadwalDataGridViewTextBoxColumn
+            // 
+            this.statusjadwalDataGridViewTextBoxColumn.DataPropertyName = "status_jadwal";
+            this.statusjadwalDataGridViewTextBoxColumn.HeaderText = "status_jadwal";
+            this.statusjadwalDataGridViewTextBoxColumn.Name = "statusjadwalDataGridViewTextBoxColumn";
+            this.statusjadwalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kapasitasDataGridViewTextBoxColumn
+            // 
+            this.kapasitasDataGridViewTextBoxColumn.DataPropertyName = "kapasitas";
+            this.kapasitasDataGridViewTextBoxColumn.HeaderText = "kapasitas";
+            this.kapasitasDataGridViewTextBoxColumn.Name = "kapasitasDataGridViewTextBoxColumn";
+            this.kapasitasDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hargaDataGridViewTextBoxColumn
+            // 
+            this.hargaDataGridViewTextBoxColumn.DataPropertyName = "harga";
+            this.hargaDataGridViewTextBoxColumn.HeaderText = "harga";
+            this.hargaDataGridViewTextBoxColumn.Name = "hargaDataGridViewTextBoxColumn";
+            this.hargaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cbIdStaff
+            // 
+            this.cbIdStaff.FormattingEnabled = true;
+            this.cbIdStaff.Location = new System.Drawing.Point(223, 110);
+            this.cbIdStaff.Name = "cbIdStaff";
+            this.cbIdStaff.Size = new System.Drawing.Size(218, 21);
+            this.cbIdStaff.TabIndex = 32;
+            // 
+            // UserScheduleTripForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
             this.Controls.Add(this.panel2);
-            this.Name = "UserEmployeeForm";
+            this.Name = "UserScheduleTripForm";
             this.Size = new System.Drawing.Size(1060, 688);
-            this.Load += new System.EventHandler(this.UserEmployeeForm_Load);
-            this.panelEditCreate.ResumeLayout(false);
-            this.panelEditCreate.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panelEditCreate.ResumeLayout(false);
+            this.panelEditCreate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employee_gridData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staffBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nexTrip_AdventureDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jadwalTripBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelEditCreate;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView employee_gridData;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.Panel panelEditCreate;
+        private System.Windows.Forms.Label lbEdit;
+        private System.Windows.Forms.Label lbCreate;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Button updateBtn;
+        private System.Windows.Forms.Button creatBtn;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox username;
@@ -576,33 +597,33 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxRole;
-        private System.Windows.Forms.TextBox name;
-        private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button cancelBtn;
-        private System.Windows.Forms.Button updateBtn;
-        private System.Windows.Forms.Button creatBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox fillTxt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button cancelBtnSearch;
         private System.Windows.Forms.Button create;
         private System.Windows.Forms.Button change;
+        private System.Windows.Forms.DataGridView employee_gridData;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button search;
-        private System.Windows.Forms.Button delete;
-        private System.Windows.Forms.Label lbCreate;
-        private System.Windows.Forms.Label lbEdit;
-        private System.Windows.Forms.Label lbID;
-        private System.Windows.Forms.BindingSource staffBindingSource;
-        private NexTrip_AdventureDataSet nexTrip_AdventureDataSet;
-        private NexTrip_AdventureDataSetTableAdapters.StaffTableAdapter staffTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idjadwalTripDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idstaffDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idroleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namastaffDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notelpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpaketDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idunitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tanggalberangkatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn waktuberangkatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tanggalpulangDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn waktupulangDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusjadwalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kapasitasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hargaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource jadwalTripBindingSource;
+        private NexTrip_AdventureDataSet nexTrip_AdventureDataSet;
+        private NexTrip_AdventureDataSetTableAdapters.Jadwal_TripTableAdapter jadwal_TripTableAdapter;
+        private System.Windows.Forms.ComboBox cbIdStaff;
     }
 }

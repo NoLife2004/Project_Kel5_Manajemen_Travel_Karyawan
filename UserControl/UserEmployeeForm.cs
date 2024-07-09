@@ -27,15 +27,45 @@ namespace Project_Kel5_Manajemen_Travel
             RefreshDataSet();
         }
 
+        private Dictionary<string, string> roleDictionary = new Dictionary<string, string>();
+
+        private DataTable GetRoles()
+        {
+            try
+            {
+                DataTable roles = new DataTable();
+                connect.Open();
+
+                SqlCommand command = new SqlCommand("SELECT id_role, nama_role FROM Role", connect);
+                SqlDataReader reader = command.ExecuteReader();
+
+                roles.Load(reader);
+
+                return roles;
+            }catch { return null; }finally {connect.Close(); }            
+        }
+
         private void UserEmployeeForm_Load(object sender, EventArgs e)
         {
-            cbxRole.DisplayMember = "nama_role";
+            /*cbxRole.DisplayMember = "nama_role";
             cbxRole.ValueMember = "id_role";
 
             SqlDataAdapter adapter = new SqlDataAdapter("SELECT id_role, nama_role FROM Role", connect);
             DataTable RoleTable = new DataTable();
             adapter.Fill(RoleTable);
-            cbxRole.DataSource = RoleTable;
+            cbxRole.DataSource = RoleTable;*/
+
+            DataTable roles = GetRoles();
+            foreach (DataRow row in roles.Rows)
+            {
+                string roleId = row["id_role"].ToString();
+                string roleName = row["nama_role"].ToString();
+                roleDictionary.Add(roleId, roleName);
+            }
+
+            cbxRole.DataSource = roles;
+            cbxRole.DisplayMember = "nama_role";
+            cbxRole.ValueMember = "id_role";
         }
 
         private void employee_gridData_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -60,7 +90,12 @@ namespace Project_Kel5_Manajemen_Travel
                     name.Text = row.Cells[2].Value.ToString();
                     email.Text = row.Cells[3].Value.ToString();
                     phone.Text = row.Cells[4].Value.ToString();
-                    cbxRole.SelectedValue = row.Cells[1].Value.ToString();   
+
+                    string roleId = row.Cells[1].Value.ToString();
+                    string roleName = roleDictionary[roleId];
+                    cbxRole.Text = roleName;
+                    //cbxRole.Text = row.Cells[1].Value.ToString();
+                    
                     username.Text = row.Cells[5].Value.ToString();
                     password.Text = row.Cells[6].Value.ToString();
                 }
@@ -76,7 +111,7 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = connect;
-                cmd.CommandText = "SELECT * FROM Staff";
+                cmd.CommandText = @"SELECT * FROM Staff";
                 cmd.CommandType = CommandType.Text;
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -103,7 +138,7 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = connect;
-                cmd.CommandText = "SELECT * FROM Staff WHERE nama_staff LIKE @keyword";
+                cmd.CommandText = "SELECT * FROM Staff WHERE nama_staff LIKE @keyword OR id_staff LIKE @keyword";
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
@@ -195,14 +230,14 @@ namespace Project_Kel5_Manajemen_Travel
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Role deleted successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Employee deleted successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshDataSet();
                         panelEditCreate.Visible = false;
                         create.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("Role deleted failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Employee deleted failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -227,22 +262,33 @@ namespace Project_Kel5_Manajemen_Travel
                 lbCreate.Visible = true;
                 lbEdit.Visible = false;
 
-                SqlCommand getMaxIdCmd = new SqlCommand("SELECT MAX(id_staff) FROM Staff", connect);
                 string newId = "ST001";
+                int minId = 1;
+                int maxId = int.MaxValue;
+
+                SqlCommand getIdCmd = new SqlCommand("SELECT id_staff FROM Staff", connect);
                 try
                 {
                     connect.Open();
-                    object result = getMaxIdCmd.ExecuteScalar();
-                    if (result != DBNull.Value)
+                    SqlDataReader reader = getIdCmd.ExecuteReader();
+                    List<int> existingIds = new List<int>();
+
+                    while (reader.Read())
                     {
-                        string currentId = result.ToString();
-                        int digit = int.Parse(currentId.Substring(3));
-                        digit++;
-                        newId = "ST" + digit.ToString().PadLeft(3, '0');
+                        string currentId = reader["id_staff"].ToString();
+                        int id = int.Parse(currentId.Substring(2));
+                        existingIds.Add(id);
                     }
-                    else
+
+                    reader.Close();
+
+                    for (int i = minId; i <= maxId; i++)
                     {
-                        newId = "ST001";
+                        if (!existingIds.Contains(i))
+                        {
+                            newId = "ST" + i.ToString().PadLeft(3, '0');
+                            break;
+                        }
                     }
                 }
                 catch (SqlException ex)
@@ -414,6 +460,7 @@ namespace Project_Kel5_Manajemen_Travel
             else
                 return false;
         }
+        
         private void email_Leave(object sender, EventArgs e)
         {
             if (this.ActiveControl == cancelBtn)
@@ -431,6 +478,15 @@ namespace Project_Kel5_Manajemen_Travel
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void phone_TextChanged(object sender, EventArgs e)
+        {
+            if (phone.Text.Length > 12)
+            {
+                MessageBox.Show("Phone number cannot exceed 12 digits.", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                phone.Text = phone.Text.Substring(0, 12);
             }
         }
     }

@@ -34,9 +34,24 @@ namespace Project_Kel5_Manajemen_Travel
             }
         }
 
+        private void customersBtn_Click(object sender, EventArgs e)
+        {
+            userCustomersForm.Visible = true;
+            userTripBundleForm.Visible = false;
+            userScheduleForm.Visible = false;
+            userScheduleTripForm.Visible = false;
+            userPromosForm.Visible = false;
+            userUnitForm.Visible = false;
+            userEmployeeForm.Visible = false;
+            userRoleForm.Visible = false;
+        }
+
         private void tripBundleBtn_Click(object sender, EventArgs e)
         {
+            userCustomersForm.Visible = false;
             userTripBundleForm.Visible = true;
+            userScheduleForm.Visible = false;
+            userScheduleTripForm.Visible = false;
             userPromosForm.Visible = false;
             userUnitForm.Visible = false;
             userEmployeeForm.Visible = false;
@@ -45,7 +60,10 @@ namespace Project_Kel5_Manajemen_Travel
 
         private void promoBtn_Click(object sender, EventArgs e)
         {
+            userCustomersForm.Visible = false;
             userTripBundleForm.Visible = false;
+            userScheduleForm.Visible = false;
+            userScheduleTripForm.Visible = false;
             userPromosForm.Visible = true;
             userUnitForm.Visible = false;
             userEmployeeForm.Visible = false;
@@ -54,7 +72,10 @@ namespace Project_Kel5_Manajemen_Travel
 
         private void unitBtn_Click(object sender, EventArgs e)
         {
+            userCustomersForm.Visible = false;
             userTripBundleForm.Visible = false;
+            userScheduleForm.Visible = false;
+            userScheduleTripForm.Visible = false;
             userPromosForm.Visible = false;
             userUnitForm.Visible = true;
             userEmployeeForm.Visible = false;
@@ -63,7 +84,10 @@ namespace Project_Kel5_Manajemen_Travel
 
         private void employeeBtn_Click(object sender, EventArgs e)
         {
+            userCustomersForm.Visible = false;
             userTripBundleForm.Visible = false;
+            userScheduleForm.Visible = false;
+            userScheduleTripForm.Visible = false;
             userPromosForm.Visible = false;
             userUnitForm.Visible = false;
             userEmployeeForm.Visible = true;
@@ -72,11 +96,31 @@ namespace Project_Kel5_Manajemen_Travel
 
         private void roleBtn_Click(object sender, EventArgs e)
         {
+            userCustomersForm.Visible = false;
             userTripBundleForm.Visible = false;
+            userScheduleForm.Visible = false;
+            userScheduleTripForm.Visible = false;
             userPromosForm.Visible = false;
             userUnitForm.Visible = false;
             userEmployeeForm.Visible = false;
             userRoleForm.Visible = true;
-        }     
+        }
+
+        private void scheduleBtn_Click(object sender, EventArgs e)
+        {
+            userCustomersForm.Visible = false;
+            userTripBundleForm.Visible = false;
+            userScheduleForm.Visible = true;
+            userScheduleTripForm.Visible = false;
+            userPromosForm.Visible = false;
+            userUnitForm.Visible = false;
+            userEmployeeForm.Visible = false;
+            userRoleForm.Visible = false;
+        }
+
+        private void busTicketBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

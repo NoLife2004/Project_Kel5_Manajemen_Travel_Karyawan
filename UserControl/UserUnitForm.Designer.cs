@@ -34,8 +34,8 @@
             this.nexTrip_Adventure = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSet();
             this.unitTravelTableAdapter = new Project_Kel5_Manajemen_Travel.NexTrip_AdventureDataSetTableAdapters.UnitTravelTableAdapter();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbID = new System.Windows.Forms.Label();
             this.panelEditCreate = new System.Windows.Forms.Panel();
+            this.lbID = new System.Windows.Forms.Label();
             this.lbEdit = new System.Windows.Forms.Label();
             this.lbCreate = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -93,7 +93,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.CausesValidation = false;
-            this.panel2.Controls.Add(this.lbID);
             this.panel2.Controls.Add(this.panelEditCreate);
             this.panel2.Controls.Add(this.delete);
             this.panel2.Controls.Add(this.label10);
@@ -111,20 +110,10 @@
             this.panel2.Size = new System.Drawing.Size(1020, 639);
             this.panel2.TabIndex = 14;
             // 
-            // lbID
-            // 
-            this.lbID.AutoSize = true;
-            this.lbID.BackColor = System.Drawing.Color.Transparent;
-            this.lbID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(971, 313);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(12, 17);
-            this.lbID.TabIndex = 30;
-            this.lbID.Text = " ";
-            // 
             // panelEditCreate
             // 
             this.panelEditCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(214)))), ((int)(((byte)(228)))));
+            this.panelEditCreate.Controls.Add(this.lbID);
             this.panelEditCreate.Controls.Add(this.lbEdit);
             this.panelEditCreate.Controls.Add(this.lbCreate);
             this.panelEditCreate.Controls.Add(this.cancelBtn);
@@ -145,6 +134,18 @@
             this.panelEditCreate.Size = new System.Drawing.Size(909, 344);
             this.panelEditCreate.TabIndex = 0;
             this.panelEditCreate.Visible = false;
+            // 
+            // lbID
+            // 
+            this.lbID.AutoSize = true;
+            this.lbID.BackColor = System.Drawing.Color.Transparent;
+            this.lbID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbID.Location = new System.Drawing.Point(568, 265);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(12, 17);
+            this.lbID.TabIndex = 30;
+            this.lbID.Text = " ";
+            this.lbID.Visible = false;
             // 
             // lbEdit
             // 

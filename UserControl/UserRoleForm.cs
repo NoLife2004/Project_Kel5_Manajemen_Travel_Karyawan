@@ -38,8 +38,16 @@ namespace Project_Kel5_Manajemen_Travel
                 {
                     DataGridViewRow row = employee_gridData.Rows[e.RowIndex];
 
+                    if (e.ColumnIndex == 0)
+                    {
+                        fillTxt.Text = row.Cells[e.ColumnIndex].Value.ToString();
+                    }
+                    else if (e.ColumnIndex == 1)
+                    {                      
+                        fillTxt.Text = row.Cells[e.ColumnIndex].Value.ToString();
+                    }
+
                     idRole.Text = row.Cells[0].Value.ToString();
-                    fillTxt.Text = row.Cells[1].Value.ToString();
                     name.Text = row.Cells[1].Value.ToString();
                 }
             }
@@ -90,7 +98,7 @@ namespace Project_Kel5_Manajemen_Travel
             changeBtn.Enabled = true;
         }
 
-        public DataSet SearchRole(string keyword)
+        public DataSet SearchRolebyId(string keyword)
         {
             DataSet dataSet = new DataSet();
 
@@ -99,7 +107,7 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = connect;
-                cmd.CommandText = "SELECT * FROM Role WHERE nama_role LIKE @keyword";
+                cmd.CommandText = "SELECT * FROM Role WHERE id_role LIKE @keyword";
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
@@ -113,6 +121,29 @@ namespace Project_Kel5_Manajemen_Travel
             return dataSet;
         }
 
+        public DataSet SearchRole(string keyword)
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = connect;
+                cmd.CommandText = "SELECT * FROM Role WHERE nama_role LIKE @keyword OR id_role LIKE @keyword";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataSet, "Role");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return dataSet;
+        }
+        
         private void search_Click(object sender, EventArgs e)
         {
             string keyword = fillTxt.Text.Trim();
@@ -160,34 +191,56 @@ namespace Project_Kel5_Manajemen_Travel
 
         private void creatBtn_Click(object sender, EventArgs e)
         {
-            createPanel.Visible = true;
-            label5.Visible = false;
-            changeBtn.Enabled = false;
-
-            SqlCommand getMaxIdCmd = new SqlCommand("SELECT MAX(id_role) FROM Role", connect);
-            string newId = "RL001";
-            try
+            if (fillTxt.Text == "")
             {
-                connect.Open();
-                object result = getMaxIdCmd.ExecuteScalar();
-                if (result != DBNull.Value)
+                createPanel.Visible = true;
+                label5.Visible = false;
+                changeBtn.Enabled = false;
+
+                string newId = "RL001";
+                int minId = 1;
+                int maxId = int.MaxValue;
+
+                SqlCommand getIdCmd = new SqlCommand("SELECT id_role FROM Role", connect);
+                try
                 {
-                    string currentId = result.ToString();
-                    int digit = int.Parse(currentId.Substring(3));
-                    digit++; 
-                    newId = "RL" + digit.ToString().PadLeft(3, '0');
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error generating new ID: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                connect.Close();
-            }
+                    connect.Open();
+                    SqlDataReader reader = getIdCmd.ExecuteReader();
+                    List<int> existingIds = new List<int>();
 
-            insertId.Text = newId;
+                    while (reader.Read())
+                    {
+                        string currentId = reader["id_role"].ToString();
+                        int id = int.Parse(currentId.Substring(2));
+                        existingIds.Add(id);
+                    }
+
+                    reader.Close();
+
+                    for (int i = minId; i <= maxId; i++)
+                    {
+                        if (!existingIds.Contains(i))
+                        {
+                            newId = "RL" + i.ToString().PadLeft(3, '0');
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error generating new ID: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connect.Close();
+                }
+
+                insertId.Text = newId;
+            }
+            else
+            {
+                
+            }
         }
 
         private void confirm_Click(object sender, EventArgs e)
@@ -203,13 +256,20 @@ namespace Project_Kel5_Manajemen_Travel
 
             try
             {
-                connect.Open();
-                insert.ExecuteNonQuery();
+                if (insertName.Text == "")
+                {
+                    MessageBox.Show("Please fill the name of role!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    connect.Open();
+                    insert.ExecuteNonQuery();
 
-                MessageBox.Show("Role create successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshDataSet();
-                createPanel.Visible = false;
-                changeBtn.Enabled = true;
+                    MessageBox.Show("Role create successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshDataSet();
+                    createPanel.Visible = false;
+                    changeBtn.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
@@ -223,14 +283,15 @@ namespace Project_Kel5_Manajemen_Travel
 
         private void cancelCreate_Click(object sender, EventArgs e)
         {
-            name.Text = string.Empty;
+            insertName.Text = string.Empty;
             createPanel.Visible = false;
             changeBtn.Enabled = true;
+            label5.Visible = true;
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            if (name.Text == "")
+            if (fillTxt.Text == "")
             {
                 MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -282,48 +343,65 @@ namespace Project_Kel5_Manajemen_Travel
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            if (name.Text == "")
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlParameter parameter = new SqlParameter();
+
+            SqlCommand delete = new SqlCommand("sp_DeleteRole", connect);
+            delete.CommandType = CommandType.StoredProcedure;
+
+            parameter = delete.Parameters.Add("@id_role", SqlDbType.VarChar, 10);
+            parameter.Direction = ParameterDirection.Input;
+            parameter.Value = idRole.Text;
+
+            try
             {
-                MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                connect.Open();
+                int rowsAffected = delete.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Role deleted successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshDataSet();
+                    editPanel.Visible = false;
+                    creatBtn.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Role deleted failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                SqlParameter parameter = new SqlParameter();
+                MessageBox.Show("Error connection DataBase: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connect.Close();
+            }
+        }
 
-                SqlCommand delete = new SqlCommand("sp_DeleteRole", connect);
-                delete.CommandType = CommandType.StoredProcedure;
+        private void cancelEdit_Click(object sender, EventArgs e)
+        {
+            name.Text = string.Empty;
+            editPanel.Visible = false;
+            creatBtn.Enabled = true;
+            label5.Visible = true;
+        }
 
-                parameter = delete.Parameters.Add("@id_role", SqlDbType.VarChar, 10);
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = idRole.Text;
+        private void insertName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
-                try
-                {
-                    connect.Open();
-                    int rowsAffected = delete.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Role deleted successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RefreshDataSet();
-                        editPanel.Visible = false;
-                        creatBtn.Enabled = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Role deleted failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error connection DataBase: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    connect.Close();
-                }
+        private void name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
 

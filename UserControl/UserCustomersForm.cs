@@ -8,27 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using System.Text.RegularExpressions;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Project_Kel5_Manajemen_Travel
 {
-    public partial class UserUnitForm : UserControl
+    public partial class UserCustomersForm : UserControl
     {
         SqlConnection connect = new SqlConnection("integrated security=true; data source=.; initial catalog=NexTrip_Adventure");
         private DataSet NexTrip_Adventure;
 
-        public UserUnitForm()
+        public UserCustomersForm()
         {
             InitializeComponent();
 
             RefreshDataSet();
         }
 
-        private void unit_gridData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void customers_gridData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (panelEditCreate.Visible == true)
             {
@@ -43,20 +38,19 @@ namespace Project_Kel5_Manajemen_Travel
 
                 if (e.RowIndex >= 0)
                 {
-                    DataGridViewRow row = employee_gridData.Rows[e.RowIndex];
+                    DataGridViewRow row = customer_gridData.Rows[e.RowIndex];
 
                     lbID.Text = row.Cells[0].Value.ToString();
                     fillTxt.Text = row.Cells[1].Value.ToString();
-                    policeNum.Text = row.Cells[1].Value.ToString();
-                    cbxStatus.SelectedValue = row.Cells[2].Value.ToString();
-                    type.Text = row.Cells[3].Value.ToString();
-                    merk.Text = row.Cells[4].Value.ToString();
-                    capacity.Text = row.Cells[5].Value.ToString();
+                    name.Text = row.Cells[1].Value.ToString();
+                    cbxGender.SelectedValue = row.Cells[2].Value.ToString();
+                    address.Text = row.Cells[3].Value.ToString();
+                    callNum.Text = row.Cells[4].Value.ToString();
                 }
             }
         }
 
-        public DataSet Unit()
+        public DataSet Customers()
         {
             DataSet dataSet = new DataSet();
 
@@ -65,11 +59,11 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = connect;
-                cmd.CommandText = "SELECT * FROM UnitTravel";
+                cmd.CommandText = "SELECT * FROM Customer";
                 cmd.CommandType = CommandType.Text;
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dataSet, "UnitTravel");
+                adapter.Fill(dataSet, "Customer");
             }
             catch (Exception ex)
             {
@@ -80,10 +74,10 @@ namespace Project_Kel5_Manajemen_Travel
 
         public void RefreshDataSet()
         {
-            employee_gridData.DataSource = Unit().Tables["UnitTravel"];
+            customer_gridData.DataSource = Customers().Tables["Customer"];
         }
 
-        public DataSet SearchUnit(string keyword)
+        public DataSet SearchCustomer(string keyword)
         {
             DataSet dataSet = new DataSet();
 
@@ -92,12 +86,12 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlCommand cmd = new SqlCommand();
 
                 cmd.Connection = connect;
-                cmd.CommandText = "SELECT * FROM UnitTravel WHERE nomor_polisi LIKE @keyword";
+                cmd.CommandText = "SELECT * FROM Customer WHERE nama_customer LIKE @keyword";
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dataSet, "UnitTravel");
+                adapter.Fill(dataSet, "Customer");
             }
             catch (Exception ex)
             {
@@ -116,23 +110,22 @@ namespace Project_Kel5_Manajemen_Travel
                 return;
             }
 
-            DataSet dataSet = SearchUnit(keyword);
+            DataSet dataSet = SearchCustomer(keyword);
 
-            if (dataSet.Tables["UnitTravel"].Rows.Count == 0)
+            if (dataSet.Tables["Customer"].Rows.Count == 0)
             {
                 MessageBox.Show("\r\nNo suitable data found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            employee_gridData.DataSource = dataSet.Tables["UnitTravel"];
+            customer_gridData.DataSource = dataSet.Tables["Customer"];
         }
 
         private void cancelBtnSearch_Click(object sender, EventArgs e)
         {
-            policeNum.Text = string.Empty;
-            type.Text = string.Empty;
-            merk.Text = string.Empty;
-            capacity.Text = string.Empty;
+            name.Text = string.Empty;
+            address.Text = string.Empty;
+            callNum.Text = string.Empty;
             lbID.Text = string.Empty;
             panelEditCreate.Visible = false;
             fillTxt.Text = string.Empty;
@@ -152,7 +145,7 @@ namespace Project_Kel5_Manajemen_Travel
                 updateBtn.Visible = true;
                 creatBtn.Visible = false;
                 lbCreate.Visible = false;
-                lbEdit.Visible = true; 
+                lbEdit.Visible = true;
             }
         }
 
@@ -167,12 +160,12 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 SqlParameter parameter = new SqlParameter();
 
-                SqlCommand delete = new SqlCommand("sp_DeleteUnit", connect);
+                SqlCommand delete = new SqlCommand("sp_DeleteCustomer", connect);
                 delete.CommandType = CommandType.StoredProcedure;
 
-                parameter = delete.Parameters.Add("@id_unit", SqlDbType.VarChar, 10);
+                parameter = delete.Parameters.Add("@id_customer", SqlDbType.VarChar, 10);
                 parameter.Direction = ParameterDirection.Input;
-                parameter.Value = lbID.Text;
+                parameter.Value = lbID;
 
                 try
                 {
@@ -181,15 +174,14 @@ namespace Project_Kel5_Manajemen_Travel
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Unit deleted successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Role deleted successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshDataSet();
                         panelEditCreate.Visible = false;
-                        fillTxt.Text = string.Empty;
                         create.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("Unit deleted failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Customer deleted failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
@@ -214,33 +206,22 @@ namespace Project_Kel5_Manajemen_Travel
                 lbCreate.Visible = true;
                 lbEdit.Visible = false;
 
-                string newId = "UT001";
-                int minId = 1;
-                int maxId = int.MaxValue;
-
-                SqlCommand getIdCmd = new SqlCommand("SELECT id_unit FROM UnitTravel", connect);
+                SqlCommand getMaxIdCmd = new SqlCommand("SELECT MAX(id_customer) FROM Customer", connect);
+                string newId = "CT001";
                 try
                 {
                     connect.Open();
-                    SqlDataReader reader = getIdCmd.ExecuteReader();
-                    List<int> existingIds = new List<int>();
-
-                    while (reader.Read())
+                    object result = getMaxIdCmd.ExecuteScalar();
+                    if (result != DBNull.Value)
                     {
-                        string currentId = reader["id_unit"].ToString();
-                        int id = int.Parse(currentId.Substring(2));
-                        existingIds.Add(id);
+                        string currentId = result.ToString();
+                        int digit = int.Parse(currentId.Substring(3));
+                        digit++;
+                        newId = "CT" + digit.ToString().PadLeft(3, '0');
                     }
-
-                    reader.Close();
-
-                    for (int i = minId; i <= maxId; i++)
+                    else
                     {
-                        if (!existingIds.Contains(i))
-                        {
-                            newId = "UT" + i.ToString().PadLeft(3, '0');
-                            break;
-                        }
+                        newId = "CT001";
                     }
                 }
                 catch (SqlException ex)
@@ -266,7 +247,7 @@ namespace Project_Kel5_Manajemen_Travel
 
         private void creatBtn_Click(object sender, EventArgs e)
         {
-            if (policeNum.Text == "" || type.Text == "" || merk.Text == "" || capacity.Text == "")
+            if (name.Text == "" || address.Text == "" || callNum.Text == "")
             {
                 MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -275,32 +256,28 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 SqlParameter parameter = new SqlParameter();
 
-                string formattedPoliceNum = FormatPoliceNumber(policeNum.Text);
-
-                SqlCommand insert = new SqlCommand("sp_InputUnit", connect);
+                SqlCommand insert = new SqlCommand("sp_InputCustomer", connect);
                 insert.CommandType = CommandType.StoredProcedure;
 
-                insert.Parameters.AddWithValue("id_unit", lbID.Text);
-                insert.Parameters.AddWithValue("no_polisi", formattedPoliceNum);
-                insert.Parameters.AddWithValue("status_unit", cbxStatus.SelectedItem);
-                insert.Parameters.AddWithValue("jenis_unit", type.Text);
-                insert.Parameters.AddWithValue("merk_unit", merk.Text);
-                insert.Parameters.AddWithValue("kapasitas", capacity.Text);
+                insert.Parameters.AddWithValue("id_customer", lbID.Text);
+                insert.Parameters.AddWithValue("nama_customer", name.Text);
+                insert.Parameters.AddWithValue("gender", cbxGender.SelectedItem);
+                insert.Parameters.AddWithValue("alamat", address.Text);
+                insert.Parameters.AddWithValue("no_telp", callNum.Text);
 
                 try
                 {
                     connect.Open();
                     insert.ExecuteNonQuery();
 
-                    MessageBox.Show("Unit added successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Customer added successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshDataSet();
                     panelEditCreate.Visible = false;
                     lbID.Text = string.Empty;
-                    policeNum.Text = string.Empty;
-                    cbxStatus.Text = string.Empty;
-                    type.Text = string.Empty;
-                    merk.Text = string.Empty;
-                    capacity.Text = string.Empty;
+                    name.Text = string.Empty;
+                    cbxGender.Text = string.Empty;
+                    address.Text = string.Empty;
+                    callNum.Text = string.Empty;
                     updateBtn.Enabled = true;
                 }
                 catch (SqlException ex)
@@ -316,13 +293,12 @@ namespace Project_Kel5_Manajemen_Travel
                     connect.Close();
                 }
             }
-        }
 
-        
+        }
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
-            if (fillTxt.Text == "" || policeNum.Text == "" || merk.Text == "" || type.Text == "" || capacity.Text == "")
+            if (fillTxt.Text == "" || name.Text == "" || address.Text == "" || callNum.Text == "")
             {
                 MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -331,34 +307,28 @@ namespace Project_Kel5_Manajemen_Travel
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 SqlParameter parameter = new SqlParameter();
 
-                string formattedPoliceNum = FormatPoliceNumber(policeNum.Text);
-
-                SqlCommand update = new SqlCommand("sp_UpdateUnit", connect);
+                SqlCommand update = new SqlCommand("sp_UpdateCustomer", connect);
                 update.CommandType = CommandType.StoredProcedure;
 
-                parameter = update.Parameters.Add("@id_unit", SqlDbType.VarChar, 10);
+                parameter = update.Parameters.Add("@id_customer", SqlDbType.VarChar, 10);
                 parameter.Direction = ParameterDirection.Input;
                 parameter.Value = lbID.Text;
 
-                parameter = update.Parameters.Add("@no_polisi", SqlDbType.VarChar, 10);
+                parameter = update.Parameters.Add("@nama_customer", SqlDbType.VarChar, 10);
                 parameter.Direction = ParameterDirection.Input;
-                parameter.Value = formattedPoliceNum;
+                parameter.Value = name.Text;
 
-                parameter = update.Parameters.Add("@status_unit", SqlDbType.VarChar, 15);
+                parameter = update.Parameters.Add("@gender", SqlDbType.VarChar, 15);
                 parameter.Direction = ParameterDirection.Input;
-                parameter.Value = cbxStatus.SelectedItem;
+                parameter.Value = cbxGender.SelectedItem;
 
-                parameter = update.Parameters.Add("@jenis_unit", SqlDbType.VarChar, 25);
+                parameter = update.Parameters.Add("@alamat", SqlDbType.VarChar, 25);
                 parameter.Direction = ParameterDirection.Input;
-                parameter.Value = type.Text;
+                parameter.Value = address.Text;
 
-                parameter = update.Parameters.Add("@merk_unit", SqlDbType.VarChar, 20);
+                parameter = update.Parameters.Add("@no_telp", SqlDbType.VarChar, 25);
                 parameter.Direction = ParameterDirection.Input;
-                parameter.Value = merk.Text;
-
-                parameter = update.Parameters.Add("@kapasitas", SqlDbType.Int);
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = capacity.Text;
+                parameter.Value = callNum.Text;
 
                 try
                 {
@@ -367,20 +337,20 @@ namespace Project_Kel5_Manajemen_Travel
 
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Unit updated successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Customer updated successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshDataSet();
                         fillTxt.Text = string.Empty;
                         panelEditCreate.Visible = false;
-                        policeNum.Text = string.Empty;
-                        cbxStatus.Text = string.Empty;
-                        type.Text = string.Empty;
-                        merk.Text = string.Empty;
-                        capacity.Text = string.Empty;
+                        lbID.Text = string.Empty;
+                        name.Text = string.Empty;
+                        cbxGender.Text = string.Empty;
+                        address.Text = string.Empty;
+                        callNum.Text = string.Empty;
                         create.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("Unit updated failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Customer updated failed!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (SqlException ex)
@@ -398,29 +368,23 @@ namespace Project_Kel5_Manajemen_Travel
             }
         }
 
-        private string FormatPoliceNumber(string input)
-        {
-            string pattern = @"^([a-zA-Z]{1,2})(\d{1,4}\d)([a-zA-Z]{1,3})$";
-            if (Regex.IsMatch(input, pattern))
-            {
-                return Regex.Replace(input, pattern, "${1} ${2} ${3}".ToUpper());
-            }
-            else
-            {
-                return input; 
-            }
-        }
-
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            policeNum.Text = string.Empty;
-            cbxStatus.Text = string.Empty;
-            type.Text = string.Empty;
-            merk.Text = string.Empty;
-            capacity.Text = string.Empty;
+            name.Text = string.Empty;
+            cbxGender.Text = string.Empty;
+            address.Text = string.Empty;
+            callNum.Text = string.Empty;
             panelEditCreate.Visible = false;
             create.Enabled = true;
             fillTxt.Text = string.Empty;
+        }
+
+        private void callNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;    
+            }
         }
     }
 }
