@@ -15,19 +15,24 @@ namespace Project_Kel5_Manajemen_Travel
         public UserScheduleForm()
         {
             InitializeComponent();
+            UserScheduleTripForm _scheduleTripForm = new UserScheduleTripForm();
+            this.Controls.Add(_scheduleTripForm);
+            _scheduleTripForm.Visible = false;
         }
 
         private void btnScheduleBus_Click(object sender, EventArgs e)
         {
-
+            UserScheduleTripForm _scheduleTripForm = new UserScheduleTripForm();
+            this.Visible = false;
+            _scheduleTripForm.Visible = true;
         }
 
         private void btnScheduleTrip_Click(object sender, EventArgs e)
         {
-            UserScheduleTripForm scheduleTrip = new UserScheduleTripForm();
-            UserScheduleForm schedule = new UserScheduleForm();
-            scheduleTrip.Visible = true;
-            schedule.Visible = false;
+            UserScheduleTripForm _scheduleTripForm = new UserScheduleTripForm();
+            this.Visible = false;
+            _scheduleTripForm.Visible = true;
+            _scheduleTripForm.Show();
 
         }
     }
